@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio AZ - Projek Saya</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           PORTFOLIO AZ - STYLE (SEMUA DALAM SATU FAIL)
+           ============================================ */
+
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #f8fafc;
+            color: #1a1a2e;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        .kepala {
+            background: #1a1a2e;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: left;
+            padding: 24px 0;
+            font-size: 14px;
+            border-top: 2px solid #e94560;
+            margin-left: 10%;
+            border-radius: 50px;
+            transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            margin-top: 2%;
+            margin-right: 2%;
+        }
+
+        .kepala.expanded {
+            margin-left: 18%;
+        }
+
+        .dlmkepala a {
+            text-decoration: none;
+            margin-left: 2.5%;
+            color: #ffffff;
+            font-family: 'Franklin Gothic Medium', sans-serif;
+            font-size: 25px;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .dlmkepala a:hover {
+            color: #e94560;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .kedudukannavigasi {
+            position: fixed;
+            top: 0;
+            left: 2%;
+            width: 70px;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px 10px;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-radius: 50px;
+            margin-top: 1%;
+            z-index: 100;
+            box-shadow: 0 0 30px rgba(233, 69, 96, 0.1);
+            border: 1px solid rgba(233, 69, 96, 0.15);
+            overflow: hidden;
+        }
+
+        .kedudukannavigasi:hover {
+            width: 250px;
+        }
+
+        .arahnav {
+            color: #e94560;
+            font-size: 20px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kedudukannavigasi:hover .arahnav {
+            transform: rotate(180deg);
+        }
+
+        .navigasi {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Franklin Gothic Medium', sans-serif;
+            padding: 13px 15px;
+            width: 100%;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            margin: 3px 0;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .navigasi .icon {
+            font-size: 20px;
+            min-width: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .navigasi .label {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 16px;
+        }
+
+        .kedudukannavigasi:hover .navigasi .label {
+            opacity: 1;
+        }
+
+        .navigasi:hover {
+            background: rgba(233, 69, 96, 0.15);
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .navigasi:hover .icon {
+            color: #e94560;
+        }
+
+        /* ===== RESPONSIVE SIDEBAR ===== */
+        @media (max-width: 768px) {
+            .kedudukannavigasi {
+                left: 1%;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .kedudukannavigasi:hover {
+                width: 200px;
+            }
+            .kepala {
+                margin-left: 15%;
+                padding: 18px 0;
+            }
+        }
+
+        /* ===== HOME SECTION ===== */
+        section#home {
+            margin-left: 10%;
+            margin-top: 2%;
+            font-family: 'Franklin Gothic Medium', sans-serif;
+        }
+
+        .home {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0 40px;
+            gap: 30px;
+        }
+
+        .home-text {
+            flex: 1 1 400px;
+        }
+
+        .home-text .greeting {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #5e5546;
+            letter-spacing: 1px;
+        }
+
+        .home-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin: 12px 0 8px;
+            letter-spacing: -1px;
+        }
+
+        .home-text h1 span {
+            display: block;
+        }
+
+        .home-text .sub-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #3d352a;
+            margin-bottom: 16px;
+        }
+
+        .home-text p {
+            max-width: 480px;
+            color: #3d352a;
+            font-size: 1rem;
+            margin-bottom: 28px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            border: 1.5px solid transparent;
+        }
+
+        .btn-primary {
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #3d352a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border-color: #1e1e1e;
+            color: #1e1e1e;
+        }
+
+        .btn-outline:hover {
+            background: #3b110496;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .home img {
+            border-radius: 320px;
+            width: 300px;
+            position: absolute;
+            right: 10%;
+        }
+
+        @media (max-width: 768px) {
+            .home img {
+                position: relative;
+                right: auto;
+                width: 200px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ===== SECTION ABOUT ===== */
+        .about-section {
+            padding: 60px 0 40px;
+            margin-left: 8%;
+        }
+
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1 1 45%;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #e94560;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .about-text p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .about-highlights {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f1f5f9;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+
+        .highlight-item i {
+            color: #e94560;
+            font-size: 16px;
+        }
+
+        /* ===== SKILLS BAR CHART ===== */
+        .about-skills {
+            flex: 1 1 40%;
+            background: white;
+            padding: 28px 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #eef2f6;
+        }
+
+        .about-skills h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .skill-item {
+            margin-bottom: 18px;
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .skill-label span:last-child {
+            color: #6b7280;
+        }
+
+        .bar-track {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #e94560, #f43f5e);
+            border-radius: 20px;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio-section {
+            padding: 60px 0 40px;
+            margin-left: 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .section-title h2 span {
+            color: #e94560;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            font-size: 16px;
+            margin-top: 6px;
+        }
+
+        /* ===== PORTFOLIO GRID ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        /* ===== CARD ===== */
+        .portfolio-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #eef2f6;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+            border-color: #e94560;
+        }
+
+        .portfolio-card .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            background: #e5e7eb;
+        }
+
+        .portfolio-card .card-content {
+            padding: 20px 22px 24px;
+        }
+
+        .portfolio-card .card-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a2e;
+        }
+
+        .portfolio-card .card-category {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-card .card-description {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .portfolio-card .card-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .portfolio-card .card-tech span {
+            background: #f1f5f9;
+            color: #1a1a2e;
+            font-size: 11px;
+            padding: 3px 12px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .card-click-hint {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #e94560;
+            font-weight: 600;
+        }
+
+        .card-click-hint i {
+            transition: transform 0.2s;
+        }
+
+        .portfolio-card:hover .card-click-hint i {
+            transform: translateX(4px);
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            padding: 40px 0;
+            margin-left: 8%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stats-grid .portfolio-card {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .stats-grid .portfolio-card h3 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #e94560;
+            margin-bottom: 4px;
+        }
+
+        .stats-grid .portfolio-card p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            padding: 50px 0 70px;
+            margin-left: 10%;
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border: 1px solid #eef2f6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e94560;
+            box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(233, 69, 96, 0.3);
+            background: linear-gradient(135deg, #2d2d44, #1a1a2e);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-status {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .form-status.error {
+            display: block;
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        /* ===== CONTACT INFO ===== */
+        .contact-info {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border: 1px solid #eef2f6;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .contact-info > p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            transition: background 0.3s;
+        }
+
+        .info-item:hover {
+            background: #f1f5f9;
+        }
+
+        .info-item i {
+            color: #e94560;
+            font-size: 20px;
+            min-width: 24px;
+            margin-top: 2px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .info-item a,
+        .info-item span {
+            font-size: 15px;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-item a:hover {
+            color: #e94560;
+        }
+
+        /* ===== SOCIAL LINKS ===== */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            color: #1a1a2e;
+            font-size: 18px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #e94560;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(233, 69, 96, 0.3);
+        }
+
+        /* ===== WORKING HOURS ===== */
+        .working-hours {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #eef2f6;
+        }
+
+        .working-hours i {
+            color: #e94560;
+            font-size: 18px;
+        }
+
+        .working-hours span {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 24px 0;
+            font-size: 14px;
+            border-top: 2px solid #e94560;
+        }
+
+        /* ============================================
+           POPUP / MODAL
+           ============================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 20px;
+            max-width: 640px;
+            width: 100%;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px) scale(0.97); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        .modal-box .modal-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px 20px 0 0;
+            background: #d1d5db;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: #e94560;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 28px 32px 32px;
+        }
+
+        .modal-body h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .modal-meta {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 14px;
+        }
+
+        .modal-description {
+            color: #374151;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        /* Tech Tags in Modal */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tags span {
+            background: #eef2ff;
+            color: #1a1a2e;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Modal Actions */
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .modal-actions a,
+        .modal-actions button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-actions .btn-primary {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .modal-actions .btn-primary:hover {
+            background: #2d2d44;
+            transform: translateY(-2px);
+        }
+
+        .modal-actions .btn-secondary {
+            background: #f1f5f9;
+            color: #1a1a2e;
+        }
+
+        .modal-actions .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .modal-actions .btn-outline {
+            background: transparent;
+            color: #6b7280;
+            border: 2px solid #e5e7eb;
+        }
+
+        .modal-actions .btn-outline:hover {
+            border-color: #1a1a2e;
+            color: #1a1a2e;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .contact-section {
+                margin-left: 5%;
+                padding: 30px 10px;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .contact-form,
+            .contact-info {
+                padding: 25px 20px;
+            }
+            .info-item {
+                padding: 12px 14px;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-section {
+                margin-left: 5%;
+            }
+            .stats-section {
+                margin-left: 5%;
+            }
+            .section-title h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section {
+                margin-left: 2%;
+                padding: 20px 5px;
+            }
+            .contact-wrapper {
+                gap: 20px;
+            }
+            .contact-form,
+            .contact-info {
+                padding: 20px 16px;
+            }
+            .btn-submit {
+                font-size: 14px;
+                padding: 12px;
+            }
+            .home-text h1 {
+                font-size: 2.2rem;
+            }
+            .modal-box {
+                margin: 10px;
+            }
+            .modal-body {
+                padding: 20px;
+            }
+            .modal-body h2 {
+                font-size: 22px;
+            }
+            .modal-actions {
+                flex-direction: column;
+            }
+            .modal-actions a,
+            .modal-actions button {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="kepala">
+        <div class="dlmkepala">
+            <a href="#about">PORTFOLIO AZRAEI</a>
+        </div>
+    </header>
+
+    <!-- ===== SIDEBAR NAVIGASI ===== -->
+    <nav>
+        <div class="kedudukannavigasi">
+            <div class="arahnav">➤</div>
+            <a href="#home" class="navigasi">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16px" height="16px" fill="white">
+                    <path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+                    </svg>
+                </span>
+                <span class="label">Home</span>
+            </a>
+            <a href="#about" class="navigasi">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16px" height="16px" fill="white">
+                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+                    </svg>
+                </span>
+                <span class="label">About</span>
+            </a>
+            <a href="#portfolio" class="navigasi">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16px" height="16px" fill="white">
+                        <path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/>
+                    </svg>
+                </span>
+                <span class="label">Project</span>
+            </a>
+            <a href="#contact" class="navigasi">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16px" height="16px" fill="white">
+                        <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                    </svg>
+                </span>
+                <span class="label">Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="home">
+        <div class="home-text">
+            <div class="greeting">HELLO, SAYA</div>
+            <h1>
+                <span>MUHAMMAD AZRAEI</span>
+            </h1>
+            <div class="sub-title">Saya seorang Web Developer</div>
+            <p>
+                Saya membantu menghasilkan laman sesawang kepada seseorang bagi memudahkan urusan
+            </p>
+            <div class="btn-group">
+                <a href="#portfolio" class="btn btn-primary">Lihat project</a>
+                <a href="#contact" class="btn btn-outline">Contact Saya</a>
+            </div>
+        </div>
+        <img src="gambar/me.jpg" alt="Muhammad Azraei" onerror="this.style.display='none'">
+    </section>
+    <br>
+    <hr>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-text">
+                    <h2>Tentang Saya</h2>
+                    <p>
+                        Saya Muhammad Azraei, seorang Web Developer yang berminat dalam
+                        membangunkan laman web yang responsif, berfungsi dan estetik.
+                        Saya mempunyai pengalaman dalam pelbagai teknologi web dan sentiasa
+                        belajar perkara baru untuk meningkatkan kemahiran.
+                    </p>
+                    <p>
+                        Saya percaya bahawa reka bentuk yang baik dan kod yang bersih
+                        dapat memberikan pengalaman pengguna yang terbaik. Saya komited
+                        untuk menghasilkan projek yang berkualiti tinggi.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <span>Kod Bersih</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Responsif</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Prestanda Tinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-skills">
+                    <h3>Kemahiran Bahasa Pengaturcaraan</h3>
+                    <div class="skill-bar" id="barChart">
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>HTML</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>CSS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>JavaScript</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-width="60"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>PHP</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-width="60"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>SQL</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <hr>
+
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="40px" height="40px" fill="black">
+                        <path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"></path>
+                    </svg><span>Project</span> Terkini</h2>
+                <p>Klik mana-mana kad untuk lihat maklumat penuh</p>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Cards akan di generate oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="portfolio-card">
+                    <h3 id="countProjects">0</h3>
+                    <p>Projek Siap</p>
+                </div>
+                <div class="portfolio-card">
+                    <h3 id="countClients">0</h3>
+                    <p>Pelanggan Puas</p>
+                </div>
+                <div class="portfolio-card">
+                    <h3 id="countTech">0</h3>
+                    <p>Teknologi Dikuasai</p>
+                </div>
+                <div class="portfolio-card">
+                    <h3 id="countAwards">0</h3>
+                    <p>Anugerah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <hr>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>📬 Hubungi Saya</h2>
+                <p class="section-sub">Jangan malu-malu, saya sedia membantu!</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- Form Kiri -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Penuh</label>
+                            <input type="text" id="name" name="name" placeholder="Contoh: Ahmad Bin Ali" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Emel</label>
+                            <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subjek mesej anda">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mesej</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Ceritakan apa yang saya boleh bantu..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Hantar Mesej
+                        </button>
+
+                        <div id="formStatus" class="form-status"></div>
+                    </form>
+                </div>
+
+                <!-- Info Kanan -->
+                <div class="contact-info">
+                    <h3>Info Lain</h3>
+                    <p>Lebih cepat hubungi saya melalui platform di bawah:</p>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Emel</strong>
+                            <a href="arauperlis975@gmail.com">azraei@example.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Telefon</strong>
+                            <a href="">012-345 6789</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Lokasi</strong>
+                            <span>Kuala Lumpur, Malaysia</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/tiadanamadisini" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <div class="working-hours">
+                        <i class="fas fa-clock"></i>
+                        <span>Isnin - Jumaat: 9:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Portfolio AZRAEI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================== -->
+    <!-- POPUP / MODAL -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img class="modal-img" id="modalImg" src="" alt="Project Image">
+            <div class="modal-body">
+                <h2 id="modalTitle">Project Title</h2>
+                <div class="modal-meta">
+                    <span id="modalCategory">Category</span>
+                </div>
+                <p class="modal-description" id="modalDesc">Description here...</p>
+                <div class="tech-tags" id="modalTech"></div>
+                <div class="modal-actions">
+                    <a href="#" target="_blank" class="btn-primary" id="modalLiveLink">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="#" target="_blank" class="btn-secondary" id="modalGithubLink">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <button class="btn-outline" id="modalCloseBtn">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- JAVASCRIPT - SEMUA DALAM SATU FAIL -->
+    <!-- ========================================================== -->
+    <script>
+        // ============================================================
+        // DATA PROJEK - (Statik, tak perlu API)
+        // ============================================================
+        const projectsData = [{
+            id: 1,
+            title: "Sistem Tempahan Makanan Mee Azraei",
+            category: "Web Development • 2025",
+            description: "Platform tempahan makanan mee",
+            image: "gambar/cover1.png",
+            tech: ["SQL", "JAVASCRIPT", "PHP", "CSS", "HTML"],
+            live_link: "https://tiadanamadisini.github.io/no/unknow.html",
+            github_link: "https://github.com/tiadanamadisini"
+        }, {
+            id: 2,
+            title: "F1 In Schools",
+            category: "Web Development • 2024",
+            description: "Membina website untuk pertandingan.",
+            image: "gambar/gmbrpameran.jpeg",
+            tech: ["CSS", "HTML"],
+            live_link: "https://anatadaredeska.github.io/pictorissprint/homepage",
+            github_link: "https://github.com/tiadanamadisini"
+        }, {
+            id: 3,
+            title: "BOT Sains Komputer",
+            category: "Web Development • 2025",
+            description: "membuat web bot mengenai soalan dan pembelajaaran sains komputer.",
+            image: "gambar/bot.png",
+            tech: ["JAVASCRIPT", "CSS", "HTML"],
+            live_link: "https://tiadanamadisini.github.io/pelajaran/sainskomputer.html",
+            github_link: "https://github.com/tiadanamadisini"
+        }, {
+            id: 4,
+            title: "Web Kelas",
+            category: "Web Development • 2025",
+            description: "Dashboard untuk memantau peranti IoT dengan graf interaktif, notifikasi masa nyata, dan analitik prediktif menggunakan AI.",
+            image: "gambar/kelas.jpg",
+            tech: ["SQL", "JAVASCRIPT", "PHP", "CSS", "HTML"],
+            live_link: "https://tiadanamadisini.github.io/no/unknow.html",
+            github_link: "https://github.com/tiadanamadisini"
+        }, {
+            id: 5,
+            title: "Kad Raya",
+            category: "Web Development • 2025",
+            description: "memberikan sampul raya online.",
+            image: "gambar/raya.png",
+            tech: ["JAVASCRIPT", "CSS", "HTML"],
+            live_link: "https://tiadanamadisini.github.io/kadraya/hariraya.html",
+            github_link: "https://github.com/tiadanamadisini"
+        }, {
+            id: 6,
+            title: "Pomodoro Website",
+            category: "Personal Branding • 2025",
+            description: "Membuat sistem pomodoro",
+            image: "gambar/pomo.png",
+            tech: ["JAVASCRIPT", "CSS", "HTML"],
+            live_link: "https://tiadanamadisini.github.io/pelajaran/pomodoro.html",
+            github_link: "https://github.com/tiadanamadisini"
+        }];
+
+        // ============================================================
+        // RENDER PORTFOLIO CARDS
+        // ============================================================
+        const grid = document.getElementById('portfolioGrid');
+
+        function renderCards() {
+            grid.innerHTML = '';
+            projectsData.forEach((project, index) => {
+                const card = document.createElement('div');
+                card.className = 'portfolio-card';
+                card.setAttribute('data-index', index);
+                card.innerHTML = `
+                    <img class="card-image" src="${project.image}" alt="${project.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/default/800/500'">
+                    <div class="card-content">
+                        <h3>${project.title}</h3>
+                        <div class="card-category">${project.category}</div>
+                        <p class="card-description">${project.description}</p>
+                        <div class="card-tech">
+                            ${project.tech.slice(0, 3).map(t => `<span>${t}</span>`).join('')}
+                            ${project.tech.length > 3 ? `<span>+${project.tech.length - 3}</span>` : ''}
+                        </div>
+                        <div class="card-click-hint">
+                            Klik untuk detail <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(index));
+                grid.appendChild(card);
+            });
+        }
+
+        // ============================================================
+        // MODAL / POPUP LOGIC
+        // ============================================================
+        const overlay = document.getElementById('modalOverlay');
+        const modalImg = document.getElementById('modalImg');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalTech = document.getElementById('modalTech');
+        const modalLiveLink = document.getElementById('modalLiveLink');
+        const modalGithubLink = document.getElementById('modalGithubLink');
+        const modalClose = document.getElementById('modalClose');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        let currentIndex = 0;
+
+        function openModal(index) {
+            const project = projectsData[index];
+            if (!project) return;
+            currentIndex = index;
+
+            modalImg.src = project.image;
+            modalImg.alt = project.title;
+            modalCategory.textContent = project.category;
+            modalTitle.textContent = project.title;
+            modalDesc.textContent = project.description;
+            modalLiveLink.href = project.live_link || '#';
+            modalGithubLink.href = project.github_link || '#';
+
+            // Hide links if not available
+            if (!project.live_link || project.live_link === '#') {
+                modalLiveLink.style.display = 'none';
+            } else {
+                modalLiveLink.style.display = 'inline-flex';
+            }
+            
+            if (!project.github_link || project.github_link === '#') {
+                modalGithubLink.style.display = 'none';
+            } else {
+                modalGithubLink.style.display = 'inline-flex';
+            }
+
+            modalTech.innerHTML = '';
+            project.tech.forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = tag;
+                modalTech.appendChild(span);
+            });
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Event listeners untuk modal
+        modalClose.addEventListener('click', closeModal);
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closeModal();
+            }
+            if (overlay.classList.contains('active')) {
+                if (e.key === 'ArrowRight') {
+                    const next = (currentIndex + 1) % projectsData.length;
+                    openModal(next);
+                }
+                if (e.key === 'ArrowLeft') {
+                    const prev = (currentIndex - 1 + projectsData.length) % projectsData.length;
+                    openModal(prev);
+                }
+            }
+        });
+
+        // ============================================================
+        // SKILL BARS ANIMATION
+        // ============================================================
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        const barFills = document.querySelectorAll('.bar-fill');
+        let barAnimated = false;
+
+        function animateBars() {
+            if (barAnimated) return;
+            const wrapper = document.getElementById('barChart');
+            if (!wrapper || !isElementInViewport(wrapper)) return;
+            barAnimated = true;
+            barFills.forEach((bar, index) => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 200 + (index * 100));
+            });
+        }
+
+        window.addEventListener('scroll', animateBars);
+        window.addEventListener('load', function() {
+            setTimeout(animateBars, 500);
+        });
+
+        // ============================================================
+        // COUNTER ANIMATION (Stats)
+        // ============================================================
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    start = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(start);
+            }, 16);
+        }
+
+        function initCounters() {
+            const counters = [
+                { id: 'countProjects', target: 6 },
+                { id: 'countClients', target: 3 },
+                { id: 'countTech', target: 4 },
+                { id: 'countAwards', target: 1 }
+            ];
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const data = counters.find(c => c.id === el.id);
+                        if (data) {
+                            animateCounter(el, data.target);
+                            observer.unobserve(el);
+                        }
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            counters.forEach(({ id }) => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+        }
+
+        // ============================================================
+        // CONTACT FORM HANDLER
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(form);
+                    const data = {
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        subject: formData.get('subject'),
+                        message: formData.get('message')
+                    };
+
+                    // Validation
+                    if (!data.name || !data.email || !data.message) {
+                        showStatus('error', '⚠️ Sila lengkapkan semua ruangan yang diperlukan.');
+                        return;
+                    }
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(data.email)) {
+                        showStatus('error', '⚠️ Sila masukkan emel yang sah.');
+                        return;
+                    }
+
+                    // Simulate sending
+                    const submitBtn = form.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menghantar...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        showStatus('success', '✅ Mesej anda berjaya dihantar! Saya akan balas segera.');
+                        form.reset();
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Dihantar!';
+                        
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        }, 2000);
+
+                    }, 1500);
+                });
+            }
+
+            function showStatus(type, message) {
+                formStatus.style.display = 'block';
+                formStatus.className = 'form-status ' + type;
+                formStatus.textContent = message;
+
+                clearTimeout(formStatus._timeout);
+                formStatus._timeout = setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // ============================================================
+        // INIT - JALANKAN SEMUA
+        // ============================================================
+        renderCards();
+        initCounters();
+
+        console.log('✅ Portfolio AZ loaded successfully!');
+        console.log('📂 Total projects:', projectsData.length);
+        console.log('💡 Klik mana-mana projek untuk popup view.');
+        console.log('⌨️ Gunakan arrow left/right untuk navigasi popup.');
+    </script>
+
+</body>
+</html>
