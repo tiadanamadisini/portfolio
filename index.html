@@ -268,12 +268,12 @@ section#home {
 .about-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 40px;
     align-items: flex-start;
 }
 
 .about-text {
-    flex: 1 1 45%;
+    flex: 1 1 100%;
 }
 
 .about-text h2 {
@@ -325,9 +325,17 @@ section#home {
     font-size: 16px;
 }
 
-/* ===== SKILLS BAR CHART ===== */
+/* SKILLS CONTAINER (GRID UNTUK CODE & VIDEO) */
+.skills-container {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
 .about-skills {
-    flex: 1 1 40%;
+    flex: 1 1 45%;
     background: white;
     padding: 28px 30px;
     border-radius: 16px;
@@ -341,6 +349,10 @@ section#home {
     color: #1a1a2e;
     margin-bottom: 22px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .skill-item {
@@ -380,7 +392,7 @@ section#home {
     transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== PORTFOLIO SECTION ===== */
+/* ===== PORTFOLIO TAB & SECTION ===== */
 .portfolio-section {
     padding: 60px 0 40px;
     margin-left: 8%;
@@ -388,7 +400,7 @@ section#home {
 
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .section-title h2 {
@@ -407,6 +419,45 @@ section#home {
     margin-top: 6px;
 }
 
+/* Tab Filter Projek */
+.portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.tab-btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    color: #1a1a2e;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-btn i {
+    font-size: 16px;
+}
+
+.tab-btn:hover {
+    border-color: #e94560;
+    color: #e94560;
+}
+
+.tab-btn.active {
+    background: #e94560;
+    color: white;
+    border-color: #e94560;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
 /* ===== PORTFOLIO GRID ===== */
 .portfolio-grid {
     display: grid;
@@ -423,6 +474,7 @@ section#home {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid #eef2f6;
+    position: relative;
 }
 
 .portfolio-card:hover {
@@ -437,6 +489,22 @@ section#home {
     object-fit: cover;
     display: block;
     background: #e5e7eb;
+}
+
+/* Icon Play Overlay untuk Kad Video */
+.video-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(233, 69, 96, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .portfolio-card .card-content {
@@ -835,13 +903,31 @@ footer {
     background: #d1d5db;
 }
 
+/* Video Player Container dalam Modal */
+.modal-video-container {
+    width: 100%;
+    height: 320px;
+    background: #000;
+    border-radius: 20px 20px 0 0;
+    display: none;
+}
+
+.modal-video-container iframe,
+.modal-video-container video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px 20px 0 0;
+}
+
+/* ---------- BUTTON PANGKAH (X) FIXED ---------- */
 .modal-close {
     position: absolute;
-    top: 14px;
-    right: 16px;
-    background: rgba(0,0,0,0.6);
+    top: 10px;
+    right: 12px;
+    background: #e94560 !important; 
     backdrop-filter: blur(4px);
-    border: none;
+    border: 2px solid white;
     color: white;
     width: 40px;
     height: 40px;
@@ -852,10 +938,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99999 !important;
 }
 
 .modal-close:hover {
-    background: #e94560;
+    background: #d0304a !important;
     transform: rotate(90deg);
 }
 
@@ -956,6 +1043,7 @@ footer {
    RESPONSIVE - TABLET (700px - 1024px)
    ============================================ */
 @media (max-width: 1024px) {
+    /* (Kod Responsif Kekal Sama) */
     .kedudukannavigasi {
         left: 1%;
         width: 65px;
@@ -975,1215 +1063,184 @@ footer {
         overflow: hidden;
         transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    .kedudukannavigasi:hover {
-        width: 230px;
-    }
-
-    .kedudukannavigasi .arahnav {
-        display: flex;
-        color: #e94560;
-        font-size: 20px;
-        padding: 12px 15px;
-        margin-bottom: 15px;
-        font-weight: bold;
-        transition: transform 0.3s;
-        background: rgba(233, 69, 96, 0.1);
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .kedudukannavigasi:hover .arahnav {
-        transform: rotate(180deg);
-    }
-
-    .kedudukannavigasi .navigasi {
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.7);
-        font-family: 'Franklin Gothic Medium', sans-serif;
-        padding: 13px 15px;
-        width: 100%;
-        transition: all 0.3s ease;
-        border-radius: 30px;
-        margin: 3px 0;
-        font-size: 16px;
-        letter-spacing: 0.5px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        white-space: nowrap;
-        position: relative;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-
-    .kedudukannavigasi .navigasi .icon {
-        font-size: 20px;
-        min-width: 30px;
-        display: inline-block;
-        text-align: center;
-    }
-
-    .kedudukannavigasi .navigasi .label {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        font-size: 16px;
-        display: inline;
-        margin-top: 0;
-    }
-
-    .kedudukannavigasi:hover .navigasi .label {
-        opacity: 1;
-    }
-
-    .kedudukannavigasi .navigasi:hover {
-        background: rgba(233, 69, 96, 0.15);
-        color: #ffffff;
-        transform: translateX(5px);
-    }
-
-    .kedudukannavigasi .navigasi:hover .icon {
-        color: #e94560;
-    }
-
-    .kedudukannavigasi .navigasi .icon svg {
-        width: 20px !important;
-        height: 20px !important;
-        fill: rgba(255, 255, 255, 0.7);
-    }
-
-    .kepala {
-        margin-left: 10% !important;
-        margin-right: 2%;
-        margin-top: 1%;
-        border-radius: 50px;
-        padding: 20px 0;
-        background: #1a1a2e;
-        color: rgba(255, 255, 255, 0.6);
-        text-align: left;
-        font-size: 14px;
-        border-top: 2px solid #e94560;
-        transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        border-radius: 50px;
-    }
-
-    section#home {
-        margin-left: 10%;
-        margin-top: 1%;
-    }
-
-    .about-section {
-        margin-left: 8%;
-    }
-
-    .portfolio-section {
-        margin-left: 8%;
-    }
-
-    .stats-section {
-        margin-left: 8%;
-    }
-
-    .contact-section {
-        margin-left: 8%;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .home img {
-        width: 220px;
-        right: 5%;
-        position: absolute;
-    }
-
-    .home-text h1 {
-        font-size: 36px;
-    }
-
-    .home {
-        position: relative;
-        padding-right: 240px;
-    }
+    .kedudukannavigasi:hover { width: 230px; }
+    .kedudukannavigasi .arahnav { display: flex; color: #e94560; font-size: 20px; padding: 12px 15px; margin-bottom: 15px; font-weight: bold; transition: transform 0.3s; background: rgba(233, 69, 96, 0.1); border-radius: 50%; width: 45px; height: 45px; align-items: center; justify-content: center; }
+    .kedudukannavigasi:hover .arahnav { transform: rotate(180deg); }
+    .kedudukannavigasi .navigasi { text-decoration: none; color: rgba(255, 255, 255, 0.7); font-family: 'Franklin Gothic Medium', sans-serif; padding: 13px 15px; width: 100%; transition: all 0.3s ease; border-radius: 30px; margin: 3px 0; font-size: 16px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 12px; white-space: nowrap; position: relative; flex-direction: row; justify-content: flex-start; }
+    .kedudukannavigasi .navigasi .icon { font-size: 20px; min-width: 30px; display: inline-block; text-align: center; }
+    .kedudukannavigasi .navigasi .label { opacity: 0; transition: opacity 0.3s ease; font-size: 16px; display: inline; margin-top: 0; }
+    .kedudukannavigasi:hover .navigasi .label { opacity: 1; }
+    .kedudukannavigasi .navigasi:hover { background: rgba(233, 69, 96, 0.15); color: #ffffff; transform: translateX(5px); }
+    .kedudukannavigasi .navigasi:hover .icon { color: #e94560; }
+    .kedudukannavigasi .navigasi .icon svg { width: 20px !important; height: 20px !important; fill: rgba(255, 255, 255, 0.7); }
+    .kepala { margin-left: 10% !important; margin-right: 2%; margin-top: 1%; border-radius: 50px; padding: 20px 0; background: #1a1a2e; color: rgba(255, 255, 255, 0.6); text-align: left; font-size: 14px; border-top: 2px solid #e94560; transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; border-radius: 50px; }
+    section#home { margin-left: 10%; margin-top: 1%; }
+    .about-section { margin-left: 8%; }
+    .portfolio-section { margin-left: 8%; }
+    .stats-section { margin-left: 8%; }
+    .contact-section { margin-left: 8%; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .home img { width: 220px; right: 5%; position: absolute; }
+    .home-text h1 { font-size: 36px; }
+    .home { position: relative; padding-right: 240px; }
+    .skills-container { flex-direction: column; }
 }
 
 /* ============================================
    RESPONSIVE - MOBILE (≤ 700px)
    ============================================ */
 @media (max-width: 700px) {
-    /* Reset untuk mobile */
-    * {
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        padding-top: 0;
-    }
-
-    .container {
-        padding: 0 16px;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* ===== HEADER MOBILE ===== */
-    .kepala {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-top: 0 !important;
-        padding: 12px 16px !important;
-        border-radius: 0 !important;
-        border-top: none !important;
-        border-bottom: 2px solid #e94560;
-        width: 100%;
-        background: #1a1a2e;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        height: 60px;
-        display: flex;
-        align-items: center;
-    }
-
-    .kepala .dlmkepala a {
-        font-size: 18px;
-        margin-left: 10px;
-        letter-spacing: 1px;
-        color: #ffffff;
-        text-decoration: none;
-    }
-
-    /* ===== NAVIGASI MOBILE (DI BAWAH HEADER - HORIZONTAL) ===== */
-    .kedudukannavigasi {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        bottom: auto;
-        width: 100% !important;
-        height: 56px;
-        background: #16213e;
-        padding: 0 4px;
-        margin: 0;
-        border-radius: 0 !important;
-        border: none;
-        border-bottom: 1px solid rgba(233, 69, 96, 0.2);
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        cursor: default;
-        z-index: 99;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.2);
-        overflow: visible;
-        transition: none;
-        display: flex !important;
-    }
-
-    .kedudukannavigasi:hover {
-        width: 100% !important;
-    }
-
-    .arahnav {
-        display: none !important;
-    }
-
-    .navigasi {
-        flex-direction: column;
-        padding: 4px 6px;
-        margin: 0;
-        border-radius: 8px;
-        gap: 0px;
-        width: auto;
-        min-width: 44px;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.6);
-        font-family: 'Franklin Gothic Medium', sans-serif;
-        font-size: 9px;
-        position: relative;
-        flex: 1;
-        max-width: 60px;
-        white-space: normal;
-    }
-
-    .navigasi .icon {
-        font-size: 18px;
-        min-width: auto;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .navigasi .icon svg {
-        width: 18px !important;
-        height: 18px !important;
-        fill: rgba(255, 255, 255, 0.6);
-        transition: fill 0.3s;
-    }
-
-    .navigasi .label {
-        opacity: 1;
-        font-size: 7px;
-        letter-spacing: 0.3px;
-        font-weight: 500;
-        transition: none;
-        display: block;
-        margin-top: 2px;
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    .navigasi:hover {
-        background: rgba(233, 69, 96, 0.15);
-        transform: none;
-    }
-
-    .navigasi:hover .icon {
-        color: #e94560;
-    }
-
-    .navigasi:hover .icon svg {
-        fill: #e94560;
-    }
-
-    .navigasi:hover .label {
-        color: #ffffff;
-    }
-
-    .navigasi.active {
-        background: rgba(233, 69, 96, 0.2);
-        color: #e94560;
-    }
-
-    .navigasi.active .icon svg {
-        fill: #e94560;
-    }
-
-    .navigasi.active .label {
-        color: #e94560;
-    }
-
-    /* ===== HOME SECTION MOBILE ===== */
-    section#home {
-        margin-left: 0 !important;
-        margin-top: 0 !important;
-        padding: 135px 16px 30px !important;
-        min-height: 100vh;
-    }
-
-    .home {
-        flex-direction: column-reverse;
-        padding: 20px 0 30px;
-        gap: 20px;
-        text-align: center;
-        padding-right: 0 !important;
-        position: relative;
-    }
-
-    .home-text {
-        flex: 1 1 100%;
-        width: 100%;
-    }
-
-    .home-text .greeting {
-        font-size: 14px;
-        color: #5e5546;
-    }
-
-    .home-text h1 {
-        font-size: 28px;
-        line-height: 1.2;
-        margin: 8px 0 4px;
-    }
-
-    .home-text h1 span {
-        display: inline;
-    }
-
-    .home-text .sub-title {
-        font-size: 18px;
-        margin-bottom: 10px;
-        color: #3d352a;
-    }
-
-    .home-text p {
-        max-width: 100%;
-        font-size: 14px;
-        margin: 0 auto 20px;
-        padding: 0 10px;
-        color: #3d352a;
-    }
-
-    .btn-group {
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        padding: 10px 24px;
-        font-size: 14px;
-    }
-
-    .home img {
-        position: relative !important;
-        right: auto !important;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #e94560;
-        box-shadow: 0 8px 32px rgba(233, 69, 96, 0.2);
-    }
-
-    /* ===== ABOUT SECTION MOBILE ===== */
-    .about-section {
-        padding: 40px 0 30px;
-        margin-left: 0 !important;
-    }
-
-    .about-wrapper {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .about-text {
-        flex: 1 1 100%;
-    }
-
-    .about-text h2 {
-        font-size: 26px;
-        color: white;
-    }
+    * { -webkit-tap-highlight-color: transparent; }
+    body { overflow-x: hidden; width: 100%; padding-top: 0; }
+    .container { padding: 0 16px; width: 100%; max-width: 100%; }
+    .kepala { margin-left: 0 !important; margin-right: 0 !important; margin-top: 0 !important; padding: 12px 16px !important; border-radius: 0 !important; border-top: none !important; border-bottom: 2px solid #e94560; width: 100%; background: #1a1a2e; position: fixed; top: 0; left: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); height: 60px; display: flex; align-items: center; }
+    .kepala .dlmkepala a { font-size: 18px; margin-left: 10px; letter-spacing: 1px; color: #ffffff; text-decoration: none; }
+    .kedudukannavigasi { position: fixed; top: 60px; left: 0; right: 0; bottom: auto; width: 100% !important; height: 56px; background: #16213e; padding: 0 4px; margin: 0; border-radius: 0 !important; border: none; border-bottom: 1px solid rgba(233, 69, 96, 0.2); flex-direction: row; justify-content: space-around; align-items: center; cursor: default; z-index: 99; box-shadow: 0 2px 15px rgba(0,0,0,0.2); overflow: visible; transition: none; display: flex !important; }
+    .kedudukannavigasi:hover { width: 100% !important; }
+    .arahnav { display: none !important; }
+    .navigasi { flex-direction: column; padding: 4px 6px; margin: 0; border-radius: 8px; gap: 0px; width: auto; min-width: 44px; align-items: center; justify-content: center; transition: all 0.2s ease; text-decoration: none; color: rgba(255, 255, 255, 0.6); font-family: 'Franklin Gothic Medium', sans-serif; font-size: 9px; position: relative; flex: 1; max-width: 60px; white-space: normal; }
+    .navigasi .icon { font-size: 18px; min-width: auto; margin: 0; display: flex; align-items: center; justify-content: center; }
+    .navigasi .icon svg { width: 18px !important; height: 18px !important; fill: rgba(255, 255, 255, 0.6); transition: fill 0.3s; }
+    .navigasi .label { opacity: 1; font-size: 7px; letter-spacing: 0.3px; font-weight: 500; transition: none; display: block; margin-top: 2px; color: rgba(255, 255, 255, 0.5); }
+    .navigasi:hover { background: rgba(233, 69, 96, 0.15); transform: none; }
+    .navigasi:hover .icon { color: #e94560; }
+    .navigasi:hover .icon svg { fill: #e94560; }
+    .navigasi:hover .label { color: #ffffff; }
+    .navigasi.active { background: rgba(233, 69, 96, 0.2); color: #e94560; }
+    .navigasi.active .icon svg { fill: #e94560; }
+    .navigasi.active .label { color: #e94560; }
+    section#home { margin-left: 0 !important; margin-top: 0 !important; padding: 135px 16px 30px !important; min-height: 100vh; }
+    .home { flex-direction: column-reverse; padding: 20px 0 30px; gap: 20px; text-align: center; padding-right: 0 !important; position: relative; }
+    .home-text { flex: 1 1 100%; width: 100%; }
+    .home-text .greeting { font-size: 14px; color: #5e5546; }
+    .home-text h1 { font-size: 28px; line-height: 1.2; margin: 8px 0 4px; }
+    .home-text h1 span { display: inline; }
+    .home-text .sub-title { font-size: 18px; margin-bottom: 10px; color: #3d352a; }
+    .home-text p { max-width: 100%; font-size: 14px; margin: 0 auto 20px; padding: 0 10px; color: #3d352a; }
+    .btn-group { justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn { padding: 10px 24px; font-size: 14px; }
+    .home img { position: relative !important; right: auto !important; width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #e94560; box-shadow: 0 8px 32px rgba(233, 69, 96, 0.2); }
+    .about-section { padding: 40px 0 30px; margin-left: 0 !important; }
+    .about-wrapper { flex-direction: column; gap: 30px; }
+    .about-text { flex: 1 1 100%; }
+    .about-text h2 { font-size: 26px; color: white; }
+    .about-text h2::after { width: 40px; height: 3px; }
+    .about-text p { font-size: 14px; line-height: 1.7; color: #bec0c3; }
+    .about-highlights { gap: 10px; justify-content: flex-start; flex-wrap: wrap; }
+    .highlight-item { padding: 6px 14px; font-size: 12px; background: #f1f5f9; border-radius: 30px; }
+    .skills-container { flex-direction: column; gap: 20px; }
+    .about-skills { padding: 20px; width: 100%; background: white; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #eef2f6; }
+    .about-skills h3 { font-size: 16px; text-align: center; margin-bottom: 18px; color:white; }
+    .skill-label { font-size: 13px; }
+    .bar-track { height: 6px; }
+    .portfolio-section { padding: 40px 0 30px; margin-left: 0 !important; }
+    .section-title { margin-bottom: 20px; }
+    .section-title h2 { font-size: 24px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .section-title h2 svg { width: 28px !important; height: 28px !important; fill: #1a1a2e; }
+    .section-title p { font-size: 14px; color: #6b7280; }
+    .portfolio-tabs { gap: 8px; }
+    .tab-btn { padding: 8px 16px; font-size: 12px; }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 4px; }
+    .portfolio-card { border-radius: 14px; overflow: hidden; background: white; border: 1px solid #eef2f6; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .portfolio-card .card-image { height: 180px; width: 100%; object-fit: cover; display: block; background: #e5e7eb; }
+    .portfolio-card .card-content { padding: 16px 18px 20px; }
+    .portfolio-card .card-content h3 { font-size: 17px; color: #1a1a2e; margin-bottom: 2px; }
+    .portfolio-card .card-category { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+    .portfolio-card .card-description { font-size: 13px; color: #4b5563; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; display: -webkit-box; line-height: 1.5; margin-bottom: 10px; }
+    .portfolio-card .card-tech span { font-size: 10px; padding: 2px 10px; background: #f1f5f9; border-radius: 30px; color: #1a1a2e; }
+    .card-click-hint { font-size: 12px; margin-top: 10px; color: #e94560; font-weight: 600; }
+    .stats-section { padding: 30px 0; margin-left: 0 !important; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stats-grid .portfolio-card { padding: 20px 12px; text-align: center; background: white; border-radius: 14px; border: 1px solid #eef2f6; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .stats-grid .portfolio-card h3 { font-size: 28px; font-weight: 800; color: #e94560; margin-bottom: 2px; }
+    .stats-grid .portfolio-card p { font-size: 12px; color: #6b7280; }
+    .contact-section { padding: 40px 0 30px !important; margin-left: 0 !important; background: #f8fafc; }
+    .section-header { text-align: center; margin-bottom: 30px; }
+    .section-header h2 { font-size: 24px; color: #ffffff; margin-bottom: 4px; }
+    .section-sub { font-size: 14px; color: #6b7280; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 24px; max-width: 100%; }
+    .contact-form { padding: 24px 18px; border-radius: 16px; background: white; border: 1px solid #eef2f6; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: #1a1a2e; display: block; margin-bottom: 4px; }
+    .form-group input, .form-group textarea { padding: 10px 14px; font-size: 14px !important; border-radius: 10px; border: 2px solid #e5e7eb; width: 100%; font-family: 'Inter', sans-serif; background: #fafafa; transition: border-color 0.3s; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #e94560; box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1); background: white; }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .btn-submit { padding: 12px; font-size: 15px; border-radius: 10px; width: 100%; background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(233, 69, 96, 0.3); }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+    .form-status { margin-top: 12px; padding: 10px; border-radius: 8px; font-weight: 500; font-size: 13px; display: none; }
+    .form-status.success { display: block; background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+    .form-status.error { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .contact-info { padding: 24px 18px; border-radius: 16px; background: white; border: 1px solid #eef2f6; box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: flex; flex-direction: column; gap: 16px; }
+    .contact-info h3 { font-size: 20px; color: #ffffff; margin-bottom: 0; }
+    .contact-info > p { color: #6b7280; font-size: 14px; margin-bottom: 0; }
+    .info-item { padding: 12px 14px; gap: 12px; background: #f8fafc; border-radius: 12px; display: flex; align-items: flex-start; transition: background 0.3s; }
+    .info-item i { font-size: 18px; min-width: 20px; color: #e94560; margin-top: 2px; }
+    .info-item strong { display: block; font-size: 12px; color: #6b7280; font-weight: 500; }
+    .info-item a, .info-item span { font-size: 14px; color: #1a1a2e; text-decoration: none; font-weight: 500; }
+    .info-item a:hover { color: #e94560; }
+    .social-links { display: flex; gap: 10px; justify-content: center; margin-top: 4px; }
+    .social-links a { width: 40px; height: 40px; font-size: 16px; background: #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1a1a2e; text-decoration: none; transition: all 0.3s; }
+    .social-links a:hover { background: #e94560; color: white; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(233, 69, 96, 0.3); }
+    .working-hours { padding: 12px 14px; background: #f8fafc; border-radius: 12px; border: 1px solid #eef2f6; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #374151; }
+    .working-hours i { color: #e94560; font-size: 16px; }
     
-    .about-text h2::after {
-        width: 40px;
-        height: 3px;
-    }
-
-    .about-text p {
-        font-size: 14px;
-        line-height: 1.7;
-        color: #bec0c3;
-    }
-
-    .about-highlights {
-        gap: 10px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .highlight-item {
-        padding: 6px 14px;
-        font-size: 12px;
-        background: #f1f5f9;
-        border-radius: 30px;
-    }
-
-    .about-skills {
-        padding: 20px;
-        width: 100%;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-        border: 1px solid #eef2f6;
-    }
-
-    .about-skills h3 {
-        font-size: 16px;
-        text-align: center;
-        margin-bottom: 18px;
-        color:white;
-    }
-
-    .skill-label {
-        font-size: 13px;
-    }
-
-    .bar-track {
-        height: 6px;
-    }
-
-    /* ===== PORTFOLIO SECTION MOBILE ===== */
-    .portfolio-section {
-        padding: 40px 0 30px;
-        margin-left: 0 !important;
-    }
-
-    .section-title {
-        margin-bottom: 28px;
-    }
-
-    .section-title h2 {
-        font-size: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .section-title h2 svg {
-        width: 28px !important;
-        height: 28px !important;
-        fill: #1a1a2e;
-    }
-
-    .section-title p {
-        font-size: 14px;
-        color: #6b7280;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 4px;
-    }
-
-    .portfolio-card {
-        border-radius: 14px;
-        overflow: hidden;
-        background: white;
-        border: 1px solid #eef2f6;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-
-    .portfolio-card .card-image {
-        height: 180px;
-        width: 100%;
-        object-fit: cover;
-        display: block;
-        background: #e5e7eb;
-    }
-
-    .portfolio-card .card-content {
-        padding: 16px 18px 20px;
-    }
-
-    .portfolio-card .card-content h3 {
-        font-size: 17px;
-        color: #1a1a2e;
-        margin-bottom: 2px;
-    }
-
-    .portfolio-card .card-category {
-        font-size: 12px;
-        color: #6b7280;
-        margin-bottom: 8px;
-    }
-
-    .portfolio-card .card-description {
-        font-size: 13px;
-        color: #4b5563;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        display: -webkit-box;
-        line-height: 1.5;
-        margin-bottom: 10px;
-    }
-
-    .portfolio-card .card-tech span {
-        font-size: 10px;
-        padding: 2px 10px;
-        background: #f1f5f9;
-        border-radius: 30px;
-        color: #1a1a2e;
-    }
-
-    .card-click-hint {
-        font-size: 12px;
-        margin-top: 10px;
-        color: #e94560;
-        font-weight: 600;
-    }
-
-    /* ===== STATS SECTION MOBILE ===== */
-    .stats-section {
-        padding: 30px 0;
-        margin-left: 0 !important;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .stats-grid .portfolio-card {
-        padding: 20px 12px;
-        text-align: center;
-        background: white;
-        border-radius: 14px;
-        border: 1px solid #eef2f6;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-
-    .stats-grid .portfolio-card h3 {
-        font-size: 28px;
-        font-weight: 800;
-        color: #e94560;
-        margin-bottom: 2px;
-    }
-
-    .stats-grid .portfolio-card p {
-        font-size: 12px;
-        color: #6b7280;
-    }
-
-    /* ===== CONTACT SECTION MOBILE ===== */
-    .contact-section {
-        padding: 40px 0 30px !important;
-        margin-left: 0 !important;
-        background: #f8fafc;
-    }
-
-    .section-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .section-header h2 {
-        font-size: 24px;
-        color: #ffffff;
-        margin-bottom: 4px;
-    }
-
-    .section-sub {
-        font-size: 14px;
-        color: #6b7280;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        max-width: 100%;
-    }
-
-    .contact-form {
-        padding: 24px 18px;
-        border-radius: 16px;
-        background: white;
-        border: 1px solid #eef2f6;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
-
-    .form-group {
-        margin-bottom: 16px;
-    }
-
-    .form-group label {
-        font-size: 13px;
-        font-weight: 600;
-        color: #1a1a2e;
-        display: block;
-        margin-bottom: 4px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        padding: 10px 14px;
-        font-size: 14px !important;
-        border-radius: 10px;
-        border: 2px solid #e5e7eb;
-        width: 100%;
-        font-family: 'Inter', sans-serif;
-        background: #fafafa;
-        transition: border-color 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-        outline: none;
-        border-color: #e94560;
-        box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
-        background: white;
-    }
-
-    .form-group textarea {
-        min-height: 100px;
-        resize: vertical;
-    }
-
-    .btn-submit {
-        padding: 12px;
-        font-size: 15px;
-        border-radius: 10px;
-        width: 100%;
-        background: linear-gradient(135deg, #1a1a2e, #16213e);
-        color: white;
-        border: none;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .btn-submit:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(233, 69, 96, 0.3);
-    }
-
-    .btn-submit:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-    }
-
-    .form-status {
-        margin-top: 12px;
-        padding: 10px;
-        border-radius: 8px;
-        font-weight: 500;
-        font-size: 13px;
-        display: none;
-    }
-
-    .form-status.success {
-        display: block;
-        background: #d1fae5;
-        color: #065f46;
-        border: 1px solid #a7f3d0;
-    }
-
-    .form-status.error {
-        display: block;
-        background: #fee2e2;
-        color: #991b1b;
-        border: 1px solid #fca5a5;
-    }
-
-    /* ===== CONTACT INFO MOBILE ===== */
-    .contact-info {
-        padding: 24px 18px;
-        border-radius: 16px;
-        background: white;
-        border: 1px solid #eef2f6;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .contact-info h3 {
-        font-size: 20px;
-        color: #ffffff;
-        margin-bottom: 0;
-    }
-
-    .contact-info > p {
-        color: #6b7280;
-        font-size: 14px;
-        margin-bottom: 0;
-    }
-
-    .info-item {
-        padding: 12px 14px;
-        gap: 12px;
-        background: #f8fafc;
-        border-radius: 12px;
-        display: flex;
-        align-items: flex-start;
-        transition: background 0.3s;
-    }
-
-    .info-item i {
-        font-size: 18px;
-        min-width: 20px;
-        color: #e94560;
-        margin-top: 2px;
-    }
-
-    .info-item strong {
-        display: block;
-        font-size: 12px;
-        color: #6b7280;
-        font-weight: 500;
-    }
-
-    .info-item a,
-    .info-item span {
-        font-size: 14px;
-        color: #1a1a2e;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .info-item a:hover {
-        color: #e94560;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 4px;
-    }
-
-    .social-links a {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-        background: #f1f5f9;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #1a1a2e;
-        text-decoration: none;
-        transition: all 0.3s;
-    }
-
-    .social-links a:hover {
-        background: #e94560;
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 16px rgba(233, 69, 96, 0.3);
-    }
-
-    .working-hours {
-        padding: 12px 14px;
-        background: #f8fafc;
-        border-radius: 12px;
-        border: 1px solid #eef2f6;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 13px;
-        color: #374151;
-    }
-
-    .working-hours i {
-        color: #e94560;
-        font-size: 16px;
-    }
-
-    /* ===== MODAL MOBILE ===== */
-    .modal-overlay {
-        padding: 10px;
-        align-items: flex-end;
-        background: rgba(0,0,0,0.6);
-        backdrop-filter: blur(6px);
-    }
-
-    .modal-box {
-        max-width: 100%;
-        max-height: 95vh;
-        border-radius: 20px 20px 0 0;
-        animation: slideUpMobile 0.35s ease;
-        margin: 0;
-        background: white;
-        width: 100%;
-        overflow-y: auto;
-    }
-
+    .modal-overlay { padding: 10px; align-items: flex-end; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); }
+    .modal-box { max-width: 100%; max-height: 95vh; border-radius: 20px 20px 0 0; animation: slideUpMobile 0.35s ease; margin: 0; background: white; width: 100%; overflow-y: auto; }
+    
     @keyframes slideUpMobile {
-        from {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
     }
     
-    .modal-box .modal-img {
-        height: 180px;
-        border-radius: 20px 20px 0 0;
-        width: 100%;
-        object-fit: cover;
-        display: block;
-        background: #d1d5db;
-    }
-
-    .modal-close {
-        top: 10px;
-        right: 12px;
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-        background: rgba(0,0,0,0.7);
-        border: none;
-        color: white;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.25s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        z-index: 10;
-    }
-
-    .modal-close:hover {
-        background: #e94560;
-        transform: rotate(90deg);
-    }
-
-    .modal-body {
-        padding: 20px 18px 24px;
-    }
-
-    .modal-body h2 {
-        font-size: 20px;
-        color: #1a1a2e;
-        margin-bottom: 2px;
-    }
-
-    .modal-meta {
-        font-size: 13px;
-        color: #6b7280;
-        margin-bottom: 12px;
-    }
-
-    .modal-description {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #374151;
-        margin-bottom: 16px;
-    }
-
-    .tech-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 20px;
-    }
-
-    .tech-tags span {
-        font-size: 12px;
-        padding: 3px 14px;
-        background: #eef2ff;
-        color: #1a1a2e;
-        border-radius: 30px;
-        font-weight: 500;
-    }
-
-    .modal-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .modal-actions a,
-    .modal-actions button {
-        padding: 12px 20px;
-        font-size: 14px;
-        justify-content: center;
-        border-radius: 12px;
-        width: 100%;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-
-    .modal-actions .btn-primary {
-        background: #1a1a2e;
-        color: white;
-    }
-
-    .modal-actions .btn-primary:hover {
-        background: #2d2d44;
-        transform: translateY(-2px);
-    }
-
-    .modal-actions .btn-secondary {
-        background: #f1f5f9;
-        color: #1a1a2e;
-    }
-
-    .modal-actions .btn-secondary:hover {
-        background: #e5e7eb;
-    }
-
-    .modal-actions .btn-outline {
-        background: transparent;
-        color: #6b7280;
-        border: 2px solid #e5e7eb;
-    }
-
-    .modal-actions .btn-outline:hover {
-        border-color: #1a1a2e;
-        color: #1a1a2e;
-    }
-
-    /* ===== FOOTER MOBILE ===== */
-    footer {
-        padding: 18px 0;
-        font-size: 12px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.6);
-        text-align: center;
-        border-top: 2px solid #e94560;
-        margin-bottom: 0;
-    }
-
-    /* ===== HR MOBILE ===== */
-    hr {
-        margin: 0 16px;
-        opacity: 0.3;
-        border: 0;
-        border-top: 1px solid #e5e7eb;
-    }
-
-    /* ===== UTILITY MOBILE ===== */
-    ::-webkit-scrollbar {
-        width: 3px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #1a1a2e;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #e94560;
-        border-radius: 10px;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .navigasi,
-    .portfolio-card,
-    .btn,
-    .social-links a,
-    .info-item {
-        -webkit-touch-callout: none;
-        user-select: none;
-    }
-
-    .portfolio-card:active {
-        transform: scale(0.97);
-        transition: transform 0.1s ease;
-    }
-
-    .navigasi:active {
-        transform: scale(0.95);
-    }
-
-    input,
-    textarea,
-    select,
-    button {
-        font-size: 16px !important;
-    }
-
-    .card-image {
-        background: linear-gradient(135deg, #1a1a2e 25%, #2a2a44 50%, #1a1a2e 75%);
-        background-size: 200% 100%;
-        animation: shimmer 1.5s infinite;
-    }
-
+    .modal-box .modal-img,
+    .modal-video-container { height: 180px; border-radius: 20px 20px 0 0; width: 100%; }
+    
+    .modal-body { padding: 20px 18px 24px; }
+    .modal-body h2 { font-size: 20px; color: #1a1a2e; margin-bottom: 2px; }
+    .modal-meta { font-size: 13px; color: #6b7280; margin-bottom: 12px; }
+    .modal-description { font-size: 14px; line-height: 1.6; color: #374151; margin-bottom: 16px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .tech-tags span { font-size: 12px; padding: 3px 14px; background: #eef2ff; color: #1a1a2e; border-radius: 30px; font-weight: 500; }
+    .modal-actions { display: flex; flex-direction: column; gap: 10px; }
+    .modal-actions a, .modal-actions button { padding: 12px 20px; font-size: 14px; justify-content: center; border-radius: 12px; width: 100%; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; }
+    .modal-actions .btn-primary { background: #1a1a2e; color: white; }
+    .modal-actions .btn-primary:hover { background: #2d2d44; transform: translateY(-2px); }
+    .modal-actions .btn-secondary { background: #f1f5f9; color: #1a1a2e; }
+    .modal-actions .btn-secondary:hover { background: #e5e7eb; }
+    .modal-actions .btn-outline { background: transparent; color: #6b7280; border: 2px solid #e5e7eb; }
+    .modal-actions .btn-outline:hover { border-color: #1a1a2e; color: #1a1a2e; }
+    
+    footer { padding: 18px 0; font-size: 12px; background: #1a1a2e; color: rgba(255,255,255,0.6); text-align: center; border-top: 2px solid #e94560; margin-bottom: 0; }
+    hr { margin: 0 16px; opacity: 0.3; border: 0; border-top: 1px solid #e5e7eb; }
+    
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: #1a1a2e; }
+    ::-webkit-scrollbar-thumb { background: #e94560; border-radius: 10px; }
+    
+    html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+    .navigasi, .portfolio-card, .btn, .social-links a, .info-item { -webkit-touch-callout: none; user-select: none; }
+    .portfolio-card:active { transform: scale(0.97); transition: transform 0.1s ease; }
+    .navigasi:active { transform: scale(0.95); }
+    input, textarea, select, button { font-size: 16px !important; }
+    .card-image { background: linear-gradient(135deg, #1a1a2e 25%, #2a2a44 50%, #1a1a2e 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+    
     @keyframes shimmer {
         0% { background-position: -200% 0; }
         100% { background-position: 200% 0; }
     }
-
-    .portfolio-card {
-        opacity: 0;
-        animation: fadeInCard 0.5s ease forwards;
-    }
-
+    
+    .portfolio-card { opacity: 0; animation: fadeInCard 0.5s ease forwards; }
     .portfolio-card:nth-child(1) { animation-delay: 0.05s; }
     .portfolio-card:nth-child(2) { animation-delay: 0.1s; }
     .portfolio-card:nth-child(3) { animation-delay: 0.15s; }
     .portfolio-card:nth-child(4) { animation-delay: 0.2s; }
     .portfolio-card:nth-child(5) { animation-delay: 0.25s; }
     .portfolio-card:nth-child(6) { animation-delay: 0.3s; }
-
+    
     @keyframes fadeInCard {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Dark mode untuk mobile */
-    @media (prefers-color-scheme: dark) {
-        body {
-            background: #0f0f1a;
-            color: #e8e8f0;
-        }
-
-        .contact-section {
-            background: #0f0f1a;
-        }
-
-        .contact-form,
-        .contact-info {
-            background: #1a1a2e;
-            border-color: #2a2a44;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            background: #252540;
-            border-color: #3a3a5a;
-            color: #e8e8f0;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            background: #2a2a44;
-            border-color: #e94560;
-        }
-
-        .form-group label {
-            color: #c8c8e0;
-        }
-
-        .about-skills {
-            background: #1a1a2e;
-            border-color: #2a2a44;
-        }
-
-        .skill-label {
-            color: #e8e8f0;
-        }
-
-        .bar-track {
-            background: #2a2a44;
-        }
-
-        .portfolio-card {
-            background: #1a1a2e;
-            border-color: #2a2a44;
-        }
-
-        .portfolio-card .card-content h3 {
-            color: #e8e8f0;
-        }
-
-        .portfolio-card .card-description {
-            color: #a8a8c0;
-        }
-
-        .portfolio-card .card-tech span {
-            background: #2a2a44;
-            color: #c8c8e0;
-        }
-
-        .highlight-item {
-            background: #252540;
-            color: #e8e8f0;
-        }
-
-        .info-item {
-            background: #252540;
-        }
-
-        .info-item strong {
-            color: #a8a8c0;
-        }
-
-        .info-item a,
-        .info-item span {
-            color: #e8e8f0;
-        }
-
-        .working-hours {
-            background: #252540;
-            border-color: #3a3a5a;
-            color: #c8c8e0;
-        }
-
-        .stats-grid .portfolio-card {
-            background: #1a1a2e;
-            border-color: #2a2a44;
-        }
-
-        .stats-grid .portfolio-card p {
-            color: #a8a8c0;
-        }
-
-        .section-title p {
-            color: #a8a8c0;
-        }
-
-        .section-sub {
-            color: #a8a8c0;
-        }
-
-        .modal-box {
-            background: #1a1a2e;
-        }
-
-        .modal-body h2 {
-            color: #e8e8f0;
-        }
-
-        .modal-description {
-            color: #c8c8d8;
-        }
-
-        .modal-actions .btn-secondary {
-            background: #2a2a44;
-            color: #e8e8f0;
-        }
-
-        .modal-actions .btn-outline {
-            color: #a8a8c0;
-            border-color: #3a3a5a;
-        }
-
-        .modal-close {
-            background: rgba(0,0,0,0.8);
-        }
-
-        .home-text .greeting {
-            color: #a8a8c0;
-        }
-
-        .home-text .sub-title {
-            color: #c8c8d8;
-        }
-
-        .home-text p {
-            color: #a8a8c0;
-        }
-
-        .btn-outline {
-            border-color: #e8e8f0;
-            color: #e8e8f0;
-        }
-
-        .btn-outline:hover {
-            background: #e94560;
-            color: #fff;
-            border-color: #e94560;
-        }
-
-        .section-title h2 svg {
-            fill: #e8e8f0 !important;
-        }
-
-        .section-title h2 {
-            color: #e8e8f0;
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 }
 
@@ -2191,133 +1248,41 @@ footer {
    SKREN SANGAT KECIL (< 400px)
    ============================================ */
 @media (max-width: 400px) {
-    .home-text h1 {
-        font-size: 24px;
-    }
-
-    .home img {
-        width: 130px;
-        height: 130px;
-    }
-
-    .btn {
-        padding: 8px 18px;
-        font-size: 13px;
-    }
-
-    .navigasi {
-        min-width: 38px;
-        padding: 2px 4px;
-        max-width: 50px;
-    }
-
-    .navigasi .label {
-        font-size: 6px;
-    }
-
-    .navigasi .icon {
-        font-size: 15px;
-    }
-
-    .navigasi .icon svg {
-        width: 15px !important;
-        height: 15px !important;
-    }
-
-    .stats-grid .portfolio-card h3 {
-        font-size: 24px;
-    }
-
-    .modal-box .modal-img {
-        height: 150px;
-    }
-
-    .modal-body h2 {
-        font-size: 18px;
-    }
-
-    .kedudukannavigasi {
-        height: 48px;
-        top: 55px;
-    }
-
-    .kepala {
-        height: 55px;
-    }
-
-    section#home {
-        padding: 120px 12px 20px !important;
-    }
+    .home-text h1 { font-size: 24px; }
+    .home img { width: 130px; height: 130px; }
+    .btn { padding: 8px 18px; font-size: 13px; }
+    .navigasi { min-width: 38px; padding: 2px 4px; max-width: 50px; }
+    .navigasi .label { font-size: 6px; }
+    .navigasi .icon { font-size: 15px; }
+    .navigasi .icon svg { width: 15px !important; height: 15px !important; }
+    .stats-grid .portfolio-card h3 { font-size: 24px; }
+    .modal-box .modal-img, .modal-video-container { height: 150px; }
+    .modal-body h2 { font-size: 18px; }
+    .kedudukannavigasi { height: 48px; top: 55px; }
+    .kepala { height: 55px; }
+    section#home { padding: 120px 12px 20px !important; }
 }
 
 /* ============================================
    LANDSCAPE MOBILE
    ============================================ */
 @media (max-width: 700px) and (orientation: landscape) {
-    .kedudukannavigasi {
-        height: 42px;
-        top: 50px;
-    }
-
-    .kepala {
-        height: 50px;
-    }
-
-    .home img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .home {
-        padding: 10px 0 20px;
-        gap: 15px;
-    }
-
-    section#home {
-        padding: 105px 16px 20px !important;
-        min-height: auto;
-    }
-
-    .home-text h1 {
-        font-size: 22px;
-    }
-
-    .about-section {
-        padding: 20px 0;
-    }
-
-    .portfolio-section {
-        padding: 20px 0;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .contact-section {
-        padding: 20px 0 20px !important;
-    }
-
-    .portfolio-card .card-image {
-        height: 140px;
-    }
-
-    .navigasi {
-        padding: 2px 4px;
-        min-width: 36px;
-        max-width: 50px;
-    }
-
-    .navigasi .label {
-        font-size: 6px;
-    }
-
-    .navigasi .icon svg {
-        width: 14px !important;
-        height: 14px !important;
-    }
+    .kedudukannavigasi { height: 42px; top: 50px; }
+    .kepala { height: 50px; }
+    .home img { width: 100px; height: 100px; }
+    .home { padding: 10px 0 20px; gap: 15px; }
+    section#home { padding: 105px 16px 20px !important; min-height: auto; }
+    .home-text h1 { font-size: 22px; }
+    .about-section { padding: 20px 0; }
+    .portfolio-section { padding: 20px 0; }
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    .contact-section { padding: 20px 0 20px !important; }
+    .portfolio-card .card-image { height: 140px; }
+    .navigasi { padding: 2px 4px; min-width: 36px; max-width: 50px; }
+    .navigasi .label { font-size: 6px; }
+    .navigasi .icon svg { width: 14px !important; height: 14px !important; }
 }
-</style>
+    </style>
 </head>
 <body>
 
@@ -2374,9 +1339,9 @@ footer {
             <h1>
                 <span>MUHAMMAD AZRAEI</span>
             </h1>
-            <div class="sub-title">Saya seorang Web Developer</div>
+            <div class="sub-title">Web Developer & Videografer</div>
             <p>
-                Saya membantu menghasilkan laman sesawang kepada seseorang bagi memudahkan urusan
+                Saya membantu menghasilkan laman sesawang dan video bagi memudahkan urusan.
             </p>
             <div class="btn-group">
                 <a href="#portfolio" class="btn btn-primary">Lihat project</a>
@@ -2395,15 +1360,10 @@ footer {
                 <div class="about-text">
                     <h2>Tentang Saya</h2>
                     <p>
-                        Saya Muhammad Azraei, seorang Web Developer yang berminat dalam
-                        membangunkan laman web yang responsif, berfungsi dan estetik.
-                        Saya mempunyai pengalaman dalam pelbagai teknologi web dan sentiasa
-                        belajar perkara baru untuk meningkatkan kemahiran.
+                        Saya Muhammad Azraei, seorang Web Developer dan Videografer yang berdedikasi dalam membangunkan laman web yang responsif serta menghasilkan kandungan video yang menarik dan estetik. Saya berpengalaman dalam pengaturcaraan web serta adunan media kreatif.
                     </p>
                     <p>
-                        Saya percaya bahawa reka bentuk yang baik dan kod yang bersih
-                        dapat memberikan pengalaman pengguna yang terbaik. Saya komited
-                        untuk menghasilkan projek yang berkualiti tinggi.
+                        Saya percaya gabungan reka bentuk web yang kemas dan visual video yang kreatif dapat memberikan impak tinggi kepada pengguna. Saya sentiasa komited untuk memberikan hasil kerja yang berkualiti tinggi.
                     </p>
                     <div class="about-highlights">
                         <div class="highlight-item">
@@ -2411,66 +1371,109 @@ footer {
                             <span>Kod Bersih</span>
                         </div>
                         <div class="highlight-item">
+                            <i class="fas fa-video"></i>
+                            <span>Suntingan Video</span>
+                        </div>
+                        <div class="highlight-item">
                             <i class="fas fa-mobile-alt"></i>
                             <span>Responsif</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-rocket"></i>
-                            <span>Prestanda Tinggi</span>
+                            <span>Prestasi Tinggi</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="about-skills">
-                    <h3>Kemahiran Bahasa Pengaturcaraan</h3>
-                    <div class="skill-bar" id="barChart">
-                        <div class="skill-item">
-                            <div class="skill-label">
-                                <span>HTML</span>
-                                <span>95%</span>
+                <!-- DUA KAD STATISTIK (CODE & VIDEO) -->
+                <div class="skills-container">
+                    <!-- Carta Kemahiran Pengaturcaraan -->
+                    <div class="about-skills">
+                        <h3><i class="fas fa-code" style="color:#e94560;"></i> Bahasa Pengaturcaraan</h3>
+                        <div class="skill-bar" id="barChartCode">
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>HTML</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="95"></div>
+                                </div>
                             </div>
-                            <div class="bar-track">
-                                <div class="bar-fill" data-width="95"></div>
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>CSS</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>JavaScript</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="60"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>PHP</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="60"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>SQL</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="70"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-label">
-                                <span>CSS</span>
-                                <span>85%</span>
+                    </div>
+
+                    <!-- Carta Kemahiran Videografi -->
+                    <div class="about-skills">
+                        <h3><i class="fas fa-film" style="color:#e94560;"></i> Penyuntingan Video</h3>
+                        <div class="skill-bar" id="barChartVideo">
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>Alight Motion</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="75"></div>
+                                </div>
                             </div>
-                            <div class="bar-track">
-                                <div class="bar-fill" data-width="85"></div>
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>CapCut</span>
+                                    <span>50%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="50"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-label">
-                                <span>JavaScript</span>
-                                <span>60%</span>
-                            </div>
-                            <div class="bar-track">
-                                <div class="bar-fill" data-width="60"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-label">
-                                <span>PHP</span>
-                                <span>60%</span>
-                            </div>
-                            <div class="bar-track">
-                                <div class="bar-fill" data-width="60"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-label">
-                                <span>SQL</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="bar-track">
-                                <div class="bar-fill" data-width="70"></div>
+                            <div class="skill-item">
+                                <div class="skill-label">
+                                    <span>KineMaster</span>
+                                    <span>45%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="45"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -2485,8 +1488,16 @@ footer {
                 <h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="40px" height="40px" fill="black">
                         <path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"></path>
                     </svg><span>Project</span> Terkini</h2>
-                <p>Klik mana-mana kad untuk lihat maklumat penuh</p>
+                <p>Klik tab di bawah untuk melihat mengikut kategori</p>
             </div>
+
+            <!-- TAB PENUTUP / PEMISAH KOD & VIDEO -->
+            <div class="portfolio-tabs">
+                <button class="tab-btn active" onclick="filterProjects('all')"><i class="fas fa-th-large"></i> Semua</button>
+                <button class="tab-btn" onclick="filterProjects('code')"><i class="fas fa-code"></i> Laman Web (Code)</button>
+                <button class="tab-btn" onclick="filterProjects('video')"><i class="fas fa-video"></i> Video & Editing</button>
+            </div>
+
             <div class="portfolio-grid" id="portfolioGrid">
                 <!-- Cards akan di generate oleh JavaScript -->
             </div>
@@ -2507,7 +1518,7 @@ footer {
                 </div>
                 <div class="portfolio-card">
                     <h3 id="countTech">0</h3>
-                    <p>Teknologi Dikuasai</p>
+                    <p>Teknologi & Perisian</p>
                 </div>
                 <div class="portfolio-card">
                     <h3 id="countAwards">0</h3>
@@ -2569,7 +1580,7 @@ footer {
                         <i class="fas fa-envelope"></i>
                         <div>
                             <strong>Emel</strong>
-                            <a href="arauperlis975@gmail.com">azraei@example.com</a>
+                            <a href="mailto:arauperlis975@gmail.com">arauperlis975@gmail.com</a>
                         </div>
                     </div>
 
@@ -2577,7 +1588,7 @@ footer {
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <strong>Telefon</strong>
-                            <a href="">012-345 6789</a>
+                            <a href="tel:0123456789">012-345 6789</a>
                         </div>
                     </div>
 
@@ -2593,6 +1604,7 @@ footer {
                         <a href="https://github.com/tiadanamadisini" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
                     </div>
 
                     <div class="working-hours">
@@ -2620,6 +1632,8 @@ footer {
                 <i class="fas fa-times"></i>
             </button>
             <img class="modal-img" id="modalImg" src="" alt="Project Image">
+            <div class="modal-video-container" id="modalVideoContainer"></div>
+            
             <div class="modal-body">
                 <h2 id="modalTitle">Project Title</h2>
                 <div class="modal-meta">
@@ -2629,7 +1643,7 @@ footer {
                 <div class="tech-tags" id="modalTech"></div>
                 <div class="modal-actions">
                     <a href="#" target="_blank" class="btn-primary" id="modalLiveLink">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
+                        <i class="fas fa-external-link-alt"></i> Pautan Luar
                     </a>
                     <a href="#" target="_blank" class="btn-secondary" id="modalGithubLink">
                         <i class="fab fa-github"></i> GitHub
@@ -2645,76 +1659,153 @@ footer {
     <!-- ========================================================== -->
     <script>
         // ============================================================
-        // DATA PROJEK - (Statik, tak perlu API)
+        // DATA PROJEK - (Dipisahkan mengikut jenis 'code' dan 'video')
         // ============================================================
-        const projectsData = [{
-            id: 1,
-            title: "Sistem Tempahan Makanan Mee Azraei",
-            category: "Web Development • 2025",
-            description: "Platform tempahan makanan mee",
-            image: "gambar/cover1.png",
-            tech: ["SQL", "JAVASCRIPT", "PHP", "CSS", "HTML"],
-            live_link: "https://meeaz.infinityfreeapp.com/",
-            github_link: "https://github.com/tiadanamadisini"
-        }, {
-            id: 2,
-            title: "F1 In Schools",
-            category: "Web Development • 2024",
-            description: "Membina website untuk pertandingan.",
-            image: "gambar/gmbrpameran.jpeg",
-            tech: ["CSS", "HTML"],
-            live_link: "https://anatadaredeska.github.io/pictorissprint/homepage",
-            github_link: "https://github.com/tiadanamadisini"
-        }, {
-            id: 3,
-            title: "BOT Sains Komputer",
-            category: "Web Development • 2025",
-            description: "membuat web bot mengenai soalan dan pembelajaaran sains komputer.",
-            image: "gambar/bot.png",
-            tech: ["JAVASCRIPT", "CSS", "HTML"],
-            live_link: "https://tiadanamadisini.github.io/pelajaran/sainskomputer.html",
-            github_link: "https://github.com/tiadanamadisini"
-        }, {
-            id: 4,
-            title: "Web Kelas",
-            category: "Web Development • 2025",
-            description: "Dashboard untuk memantau peranti IoT dengan graf interaktif, notifikasi masa nyata, dan analitik prediktif menggunakan AI.",
-            image: "gambar/kelas.jpg",
-            tech: ["SQL", "JAVASCRIPT", "PHP", "CSS", "HTML"],
-            live_link: "https://tiadanamadisini.github.io/no/unknow.html",
-            github_link: "https://github.com/tiadanamadisini"
-        }, {
-            id: 5,
-            title: "Kad Raya",
-            category: "Web Development • 2025",
-            description: "memberikan sampul raya online.",
-            image: "gambar/raya.png",
-            tech: ["JAVASCRIPT", "CSS", "HTML"],
-            live_link: "https://tiadanamadisini.github.io/kadraya/hariraya.html",
-            github_link: "https://github.com/tiadanamadisini"
-        }, {
-            id: 6,
-            title: "Pomodoro Website",
-            category: "Personal Branding • 2025",
-            description: "Membuat sistem pomodoro",
-            image: "gambar/pomo.png",
-            tech: ["JAVASCRIPT", "CSS", "HTML"],
-            live_link: "https://tiadanamadisini.github.io/pelajaran/pomodoro.html",
-            github_link: "https://github.com/tiadanamadisini"
-        }];
+        const projectsData = [
+            {
+                id: 1,
+                type: "code",
+                title: "Sistem Tempahan Makanan Mee Azraei",
+                category: "Web Development • 2025",
+                description: "Platform tempahan makanan mee",
+                image: "gambar/cover1.png",
+                tech: ["SQL", "JAVASCRIPT", "PHP", "CSS", "HTML"],
+                live_link: "https://meeaz.infinityfreeapp.com/",
+                github_link: "https://github.com/tiadanamadisini"
+            },
+            {
+                id: 2,
+                type: "code",
+                title: "F1 In Schools",
+                category: "Web Development • 2024",
+                description: "Membina website untuk pertandingan.",
+                image: "gambar/gmbrpameran.jpeg",
+                tech: ["CSS", "HTML"],
+                live_link: "https://anatadaredeska.github.io/pictorissprint/homepage",
+                github_link: "https://github.com/tiadanamadisini"
+            },
+            {
+                id: 3,
+                type: "code",
+                title: "BOT Sains Komputer",
+                category: "Web Development • 2025",
+                description: "membuat web bot mengenai soalan dan pembelajaaran sains komputer.",
+                image: "gambar/bot.png",
+                tech: ["JAVASCRIPT", "CSS", "HTML"],
+                live_link: "https://tiadanamadisini.github.io/pelajaran/sainskomputer.html",
+                github_link: "https://github.com/tiadanamadisini"
+            },
+            {
+                id: 4,
+                type: "code",
+                title: "Web Kelas",
+                category: "Web Development • 2025",
+                description: "Dashboard untuk memantau peranti IoT dengan graf interaktif, notifikasi masa nyata, dan analitik prediktif menggunakan AI.",
+                image: "gambar/kelas.jpg",
+                tech: ["SQL", "JAVASCRIPT", "PHP", "CSS", "HTML"],
+                live_link: "https://tiadanamadisini.github.io/no/unknow.html",
+                github_link: "https://github.com/tiadanamadisini"
+            },
+            {
+                id: 5,
+                type: "code",
+                title: "Kad Raya",
+                category: "Web Development • 2025",
+                description: "memberikan sampul raya online.",
+                image: "gambar/raya.png",
+                tech: ["JAVASCRIPT", "CSS", "HTML"],
+                live_link: "https://tiadanamadisini.github.io/kadraya/hariraya.html",
+                github_link: "https://github.com/tiadanamadisini"
+            },
+            {
+                id: 6,
+                type: "code",
+                title: "Pomodoro Website",
+                category: "Personal Branding • 2025",
+                description: "Membuat sistem pomodoro",
+                image: "gambar/pomo.png",
+                tech: ["JAVASCRIPT", "CSS", "HTML"],
+                live_link: "https://tiadanamadisini.github.io/pelajaran/pomodoro.html",
+                github_link: "https://github.com/tiadanamadisini"
+            },
+            // PROJEK VIDEO YANG TELAH DIKEMASKINI KE .MP4
+            {
+                id: 7,
+                type: "video",
+                title: "Tawaran",
+                category: "Video Editing • 2026",
+                description: "situasi sebenar semasa menerima tawaran",
+                image: "gambar/",
+                video_embed: `
+                    <video controls playsinline style="width:100%; height:100%; object-fit:contain; background:#000; border-radius:20px 20px 0 0;">
+                        <source src="gambar/IMG_0428.mp4" type="video/mp4">
+                        Pelayar anda tidak menyokong pemain video ini.
+                    </video>
+                `, 
+                tech: ["CapCut"],
+            },
+            {
+                id: 8,
+                type: "video",
+                title: "Peluang",
+                category: "Video Editing • 2026",
+                description: "Mengambarkan seseorang suka bertangguh dan melepaskan peluang di depan mata",
+                image: "gambar/", 
+                video_embed: `
+                    <video controls playsinline style="width:100%; height:100%; object-fit:contain; background:#000; border-radius:20px 20px 0 0;">
+                        <source src="gambar/IMG_0602.mp4" type="video/mp4">
+                        Pelayar anda tidak menyokong pemain video ini.
+                    </video>
+                `, 
+                tech: ["CapCut"],
+            },
+            {
+                id: 9,
+                type: "video",
+                title: "Man?",
+                category: "Video Editing • 2026",
+                description: "kisah seram",
+                image: "gambar/", 
+                video_embed: `
+                    <video controls playsinline style="width:100%; height:100%; object-fit:contain; background:#000; border-radius:20px 20px 0 0;">
+                        <source src="gambar/IMG_0792.mp4" type="video/mp4">
+                        Pelayar anda tidak menyokong pemain video ini.
+                    </video>
+                `, 
+                tech: ["CapCut"],
+            }
+        ];
+
+        let currentFilter = 'all';
 
         // ============================================================
-        // RENDER PORTFOLIO CARDS
+        // RENDER PORTFOLIO CARDS (DENGAN FILTER)
         // ============================================================
         const grid = document.getElementById('portfolioGrid');
 
         function renderCards() {
             grid.innerHTML = '';
-            projectsData.forEach((project, index) => {
+            
+            const filteredData = projectsData.filter(p => {
+                if (currentFilter === 'all') return true;
+                return p.type === currentFilter;
+            });
+
+            if(filteredData.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #6b7280; padding: 40px 0;">Tiada projek ditemui dalam kategori ini.</p>`;
+                return;
+            }
+
+            filteredData.forEach((project) => {
+                const realIndex = projectsData.findIndex(item => item.id === project.id);
                 const card = document.createElement('div');
                 card.className = 'portfolio-card';
-                card.setAttribute('data-index', index);
+                card.setAttribute('data-index', realIndex);
+                
+                const videoBadge = project.type === 'video' ? `<div class="video-badge"><i class="fas fa-play-circle"></i> Video</div>` : '';
+
                 card.innerHTML = `
+                    ${videoBadge}
                     <img class="card-image" src="${project.image}" alt="${project.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/default/800/500'">
                     <div class="card-content">
                         <h3>${project.title}</h3>
@@ -2729,16 +1820,24 @@ footer {
                         </div>
                     </div>
                 `;
-                card.addEventListener('click', () => openModal(index));
+                card.addEventListener('click', () => openModal(realIndex));
                 grid.appendChild(card);
             });
         }
 
+        function filterProjects(type) {
+            currentFilter = type;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            renderCards();
+        }
+
         // ============================================================
-        // MODAL / POPUP LOGIC
+        // MODAL / POPUP LOGIC (TELAH DIPERBAIKI UNTUK HALANG BUG)
         // ============================================================
         const overlay = document.getElementById('modalOverlay');
         const modalImg = document.getElementById('modalImg');
+        const modalVideoContainer = document.getElementById('modalVideoContainer');
         const modalCategory = document.getElementById('modalCategory');
         const modalTitle = document.getElementById('modalTitle');
         const modalDesc = document.getElementById('modalDesc');
@@ -2754,15 +1853,25 @@ footer {
             if (!project) return;
             currentIndex = index;
 
-            modalImg.src = project.image;
-            modalImg.alt = project.title;
+            // Semak jika video atau gambar
+            if (project.type === 'video' && project.video_embed) {
+                modalImg.style.display = 'none';
+                modalVideoContainer.style.display = 'block';
+                modalVideoContainer.innerHTML = project.video_embed;
+            } else {
+                modalVideoContainer.style.display = 'none';
+                modalVideoContainer.innerHTML = '';
+                modalImg.style.display = 'block';
+                modalImg.src = project.image;
+                modalImg.alt = project.title;
+            }
+
             modalCategory.textContent = project.category;
             modalTitle.textContent = project.title;
             modalDesc.textContent = project.description;
             modalLiveLink.href = project.live_link || '#';
             modalGithubLink.href = project.github_link || '#';
 
-            // Hide links if not available
             if (!project.live_link || project.live_link === '#') {
                 modalLiveLink.style.display = 'none';
             } else {
@@ -2786,12 +1895,28 @@ footer {
             document.body.style.overflow = 'hidden';
         }
 
+        // TUKAR: Fungsi closeModal baru untuk matikan video sebelum tutup
         function closeModal() {
+            // Cari jika ada video sedang dimainkan di dalam popup
+            const videoEl = modalVideoContainer.querySelector('video');
+            
+            // Berhentikan (pause) video dengan selamat supaya browser tak jem
+            if (videoEl) {
+                videoEl.pause();
+                videoEl.removeAttribute('src'); 
+                videoEl.load();
+            }
+
+            // Tutup paparan popup
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
+
+            // Padam kotak video selepas 300ms (tunggu animasi popup tertutup)
+            setTimeout(() => {
+                modalVideoContainer.innerHTML = ''; 
+            }, 300);
         }
 
-        // Event listeners untuk modal
         modalClose.addEventListener('click', closeModal);
         modalCloseBtn.addEventListener('click', closeModal);
 
@@ -2802,16 +1927,6 @@ footer {
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && overlay.classList.contains('active')) {
                 closeModal();
-            }
-            if (overlay.classList.contains('active')) {
-                if (e.key === 'ArrowRight') {
-                    const next = (currentIndex + 1) % projectsData.length;
-                    openModal(next);
-                }
-                if (e.key === 'ArrowLeft') {
-                    const prev = (currentIndex - 1 + projectsData.length) % projectsData.length;
-                    openModal(prev);
-                }
             }
         });
 
@@ -2833,14 +1948,14 @@ footer {
 
         function animateBars() {
             if (barAnimated) return;
-            const wrapper = document.getElementById('barChart');
-            if (!wrapper || !isElementInViewport(wrapper)) return;
+            const wrapperCode = document.getElementById('barChartCode');
+            if (!wrapperCode || !isElementInViewport(wrapperCode)) return;
             barAnimated = true;
             barFills.forEach((bar, index) => {
                 const width = bar.getAttribute('data-width');
                 setTimeout(() => {
                     bar.style.width = width + '%';
-                }, 200 + (index * 100));
+                }, 150 + (index * 80));
             });
         }
 
@@ -2867,9 +1982,9 @@ footer {
 
         function initCounters() {
             const counters = [
-                { id: 'countProjects', target: 6 },
+                { id: 'countProjects', target: projectsData.length },
                 { id: 'countClients', target: 5 },
-                { id: 'countTech', target: 4 },
+                { id: 'countTech', target: 8 },
                 { id: 'countAwards', target: 0 }
             ];
 
@@ -2911,7 +2026,6 @@ footer {
                         message: formData.get('message')
                     };
 
-                    // Validation
                     if (!data.name || !data.email || !data.message) {
                         showStatus('error', '⚠️ Sila lengkapkan semua ruangan yang diperlukan.');
                         return;
@@ -2923,7 +2037,6 @@ footer {
                         return;
                     }
 
-                    // Simulate sending
                     const submitBtn = form.querySelector('.btn-submit');
                     const originalText = submitBtn.innerHTML;
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menghantar...';
@@ -2956,16 +2069,10 @@ footer {
         });
 
         // ============================================================
-        // INIT - JALANKAN SEMUA
+        // INIT
         // ============================================================
         renderCards();
         initCounters();
-
-        console.log('✅ Portfolio AZ loaded successfully!');
-        console.log('📂 Total projects:', projectsData.length);
-        console.log('💡 Klik mana-mana projek untuk popup view.');
-        console.log('⌨️ Gunakan arrow left/right untuk navigasi popup.');
     </script>
-
 </body>
 </html>
