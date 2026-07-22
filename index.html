@@ -268,12 +268,12 @@ section#home {
 .about-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 50px;
     align-items: flex-start;
 }
 
 .about-text {
-    flex: 1 1 100%;
+    flex: 1 1 45%;
 }
 
 .about-text h2 {
@@ -335,7 +335,7 @@ section#home {
 }
 
 .about-skills {
-    flex: 1 1 45%;
+    flex: 1 1 40%;
     background: white;
     padding: 28px 30px;
     border-radius: 16px;
@@ -923,11 +923,11 @@ footer {
 /* ---------- BUTTON PANGKAH (X) FIXED ---------- */
 .modal-close {
     position: absolute;
-    top: 10px;
-    right: 12px;
-    background: #e94560 !important; 
+    top: 14px;
+    right: 16px;
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(4px);
-    border: 2px solid white;
+    border: none;
     color: white;
     width: 40px;
     height: 40px;
@@ -938,11 +938,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 99999 !important;
 }
 
 .modal-close:hover {
-    background: #d0304a !important;
+    background: #e94560;
     transform: rotate(90deg);
 }
 
@@ -1043,7 +1042,6 @@ footer {
    RESPONSIVE - TABLET (700px - 1024px)
    ============================================ */
 @media (max-width: 1024px) {
-    /* (Kod Responsif Kekal Sama) */
     .kedudukannavigasi {
         left: 1%;
         width: 65px;
@@ -1196,6 +1194,9 @@ footer {
     .modal-box .modal-img,
     .modal-video-container { height: 180px; border-radius: 20px 20px 0 0; width: 100%; }
     
+    .modal-close { top: 10px; right: 12px; width: 36px; height: 36px; font-size: 16px; background: rgba(0,0,0,0.7); border: none; color: white; border-radius: 50%; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; position: absolute; z-index: 10; }
+    .modal-close:hover { background: #e94560; transform: rotate(90deg); }
+
     .modal-body { padding: 20px 18px 24px; }
     .modal-body h2 { font-size: 20px; color: #1a1a2e; margin-bottom: 2px; }
     .modal-meta { font-size: 13px; color: #6b7280; margin-bottom: 12px; }
@@ -1241,6 +1242,45 @@ footer {
     @keyframes fadeInCard {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== DARK MODE ===== */
+    @media (prefers-color-scheme: dark) {
+        body { background: #0f0f1a; color: #e8e8f0; }
+        .contact-section { background: #0f0f1a; }
+        .contact-form, .contact-info { background: #1a1a2e; border-color: #2a2a44; }
+        .form-group input, .form-group textarea { background: #252540; border-color: #3a3a5a; color: #e8e8f0; }
+        .form-group input:focus, .form-group textarea:focus { background: #2a2a44; border-color: #e94560; }
+        .form-group label { color: #c8c8e0; }
+        .about-skills { background: #1a1a2e; border-color: #2a2a44; }
+        .skill-label { color: #e8e8f0; }
+        .bar-track { background: #2a2a44; }
+        .portfolio-card { background: #1a1a2e; border-color: #2a2a44; }
+        .portfolio-card .card-content h3 { color: #e8e8f0; }
+        .portfolio-card .card-description { color: #a8a8c0; }
+        .portfolio-card .card-tech span { background: #2a2a44; color: #c8c8e0; }
+        .highlight-item { background: #252540; color: #e8e8f0; }
+        .info-item { background: #252540; }
+        .info-item strong { color: #a8a8c0; }
+        .info-item a, .info-item span { color: #e8e8f0; }
+        .working-hours { background: #252540; border-color: #3a3a5a; color: #c8c8e0; }
+        .stats-grid .portfolio-card { background: #1a1a2e; border-color: #2a2a44; }
+        .stats-grid .portfolio-card p { color: #a8a8c0; }
+        .section-title p { color: #a8a8c0; }
+        .section-sub { color: #a8a8c0; }
+        .modal-box { background: #1a1a2e; }
+        .modal-body h2 { color: #e8e8f0; }
+        .modal-description { color: #c8c8d8; }
+        .modal-actions .btn-secondary { background: #2a2a44; color: #e8e8f0; }
+        .modal-actions .btn-outline { color: #a8a8c0; border-color: #3a3a5a; }
+        .modal-close { background: rgba(0,0,0,0.8); }
+        .home-text .greeting { color: #a8a8c0; }
+        .home-text .sub-title { color: #c8c8d8; }
+        .home-text p { color: #a8a8c0; }
+        .btn-outline { border-color: #e8e8f0; color: #e8e8f0; }
+        .btn-outline:hover { background: #e94560; color: #fff; border-color: #e94560; }
+        .section-title h2 svg { fill: #e8e8f0 !important; }
+        .section-title h2 { color: #e8e8f0; }
     }
 }
 
@@ -1736,13 +1776,13 @@ footer {
                 category: "Video Editing • 2026",
                 description: "situasi sebenar semasa menerima tawaran",
                 image: "gambar/vid1.png",
-                video_embed: `
-    <iframe src="https://drive.google.com/file/d/1stTCMJNL0G-khE7slJkCcrtEXrCvN64E/preview" 
-            style="width:100%; height:100%; border-radius:20px 20px 0 0; background:#000;" 
-            frameborder="0" 
-            allowfullscreen>
-    </iframe>
-                 `, 
+                video_embed:`
+                    <iframe src="https://drive.google.com/file/d/1stTCMJNL0G-khE7slJkCcrtEXrCvN64E/preview" 
+                            style="width:100%; height:100%; border-radius:20px 20px 0 0; background:#000;" 
+                            frameborder="0" 
+                            allowfullscreen>
+                    </iframe>
+                `,
                 tech: ["CapCut"],
             },
             {
@@ -1753,10 +1793,11 @@ footer {
                 description: "Mengambarkan seseorang suka bertangguh dan melepaskan peluang di depan mata",
                 image: "gambar/vid2.png", 
                 video_embed: `
-                    <video controls playsinline style="width:100%; height:100%; object-fit:contain; background:#000; border-radius:20px 20px 0 0;">
-                        <source src="gambar/IMG_0602.mp4" type="video/mp4">
-                        Pelayar anda tidak menyokong pemain video ini.
-                    </video>
+                    <iframe src="https://drive.google.com/file/d/1sjWyz6TAXZtc4a254z1CtW0V_CyHKzTm/preview" 
+                            style="width:100%; height:100%; border-radius:20px 20px 0 0; background:#000;" 
+                            frameborder="0" 
+                            allowfullscreen>
+                    </iframe>
                 `, 
                 tech: ["CapCut"],
             },
@@ -1768,10 +1809,11 @@ footer {
                 description: "kisah seram",
                 image: "gambar/vid3.png", 
                 video_embed: `
-                    <video controls playsinline style="width:100%; height:100%; object-fit:contain; background:#000; border-radius:20px 20px 0 0;">
-                        <source src="gambar/IMG_0792.mp4" type="video/mp4">
-                        Pelayar anda tidak menyokong pemain video ini.
-                    </video>
+                    <iframe src="https://drive.google.com/file/d/15BhDK6GE5RNGPqiMwHBkvgZ7fuQG3XNT/preview" 
+                            style="width:100%; height:100%; border-radius:20px 20px 0 0; background:#000;" 
+                            frameborder="0" 
+                            allowfullscreen>
+                    </iframe>
                 `, 
                 tech: ["CapCut"],
             }
