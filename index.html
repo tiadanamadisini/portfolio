@@ -425,6 +425,7 @@ section#home {
     justify-content: center;
     gap: 15px;
     margin-bottom: 35px;
+    flex-wrap: wrap;
 }
 
 .tab-btn {
@@ -505,6 +506,72 @@ section#home {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+/* Badge untuk Aplikasi (APK Android / IPA iOS) */
+.app-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.app-badge {
+    background: rgba(233, 69, 96, 0.92);
+}
+
+/* Dua butang download bersebelahan dalam modal (Android / iOS) */
+.download-group {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+}
+
+.download-group .btn-download {
+    flex: 1 1 160px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+}
+
+.download-group .btn-download i {
+    font-size: 18px;
+}
+
+.download-group .btn-android {
+    background: #3ddc84;
+    color: #0a3d1f;
+}
+
+.download-group .btn-android:hover {
+    background: #2fc274;
+    transform: translateY(-2px);
+}
+
+.download-group .btn-ios {
+    background: #1a1a2e;
+    color: white;
+}
+
+.download-group .btn-ios:hover {
+    background: #2d2d44;
+    transform: translateY(-2px);
 }
 
 .portfolio-card .card-content {
@@ -1534,11 +1601,12 @@ footer {
                 <p>Klik tab di bawah untuk melihat mengikut kategori</p>
             </div>
 
-            <!-- TAB PENUTUP / PEMISAH KOD & VIDEO -->
+            <!-- TAB PENUTUP / PEMISAH KOD & VIDEO & APLIKASI -->
             <div class="portfolio-tabs">
                 <button class="tab-btn active" onclick="filterProjects('all')"><i class="fas fa-th-large"></i> Semua</button>
                 <button class="tab-btn" onclick="filterProjects('code')"><i class="fas fa-code"></i> Laman Web (Code)</button>
                 <button class="tab-btn" onclick="filterProjects('video')"><i class="fas fa-video"></i> Video & Editing</button>
+                <button class="tab-btn" onclick="filterProjects('app')"><i class="fas fa-mobile-alt"></i> Aplikasi</button>
             </div>
 
             <div class="portfolio-grid" id="portfolioGrid">
@@ -1628,14 +1696,6 @@ footer {
                     </div>
 
                     <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <strong>Telefon</strong>
-                            <a href="#"></a>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <strong>Lokasi</strong>
@@ -1684,6 +1744,14 @@ footer {
                     <a href="#" target="_blank" class="btn-secondary" id="modalGithubLink">
                         <i class="fab fa-github"></i> GitHub
                     </a>
+                    <div class="download-group" id="modalDownloadGroup">
+                        <a href="#" target="_blank" class="btn-download btn-android" id="modalApkLink">
+                            <i class="fab fa-android"></i> Android (APK)
+                        </a>
+                        <a href="#" target="_blank" class="btn-download btn-ios" id="modalIpaLink">
+                            <i class="fab fa-apple"></i> iOS (IPA)
+                        </a>
+                    </div>
                     <button class="btn-outline" id="modalCloseBtn">Tutup</button>
                 </div>
             </div>
@@ -1695,7 +1763,7 @@ footer {
     <!-- ========================================================== -->
     <script>
         // ============================================================
-        // DATA PROJEK - (Dipisahkan mengikut jenis 'code' dan 'video')
+        // DATA PROJEK - (Dipisahkan mengikut jenis 'code', 'video', 'apk', 'ipa')
         // ============================================================
         const projectsData = [
             {
@@ -1764,8 +1832,7 @@ footer {
                 live_link: "https://tiadanamadisini.github.io/pelajaran/pomodoro.html",
                 github_link: "https://github.com/tiadanamadisini"
             },
-            // PROJEK VIDEO YANG TELAH DIKEMASKINI KE .MP4
-            
+            // PROJEK VIDEO
             {
                 id: 7,
                 type: "video",
@@ -1845,7 +1912,19 @@ footer {
                     </video>
                 `, 
                 tech: ["CapCut"],
-            }
+            },
+            // PROJEK APLIKASI (Android APK & iOS IPA dalam satu entri)
+            {
+                id: 12,
+                type: "app",
+                title: "Meeaz Project",
+                category: "Aplikasi Mudah Alih • 2026",
+                description: "Aplikasi yang boleh berbual dan berinteraksi dengan waguri, tersedia untuk Android dan iOS.",
+                image: "gambar/waguri.png",
+                tech: ["Android", "iOS", "APK"],
+                apk_link: "https://drive.google.com/file/d/1DiUJneADHE7CxD27gga-AfD2r6LzLtFg/view?usp=drivesdk",
+                ipa_link: "#"
+            },
         ];
 
         let currentFilter = 'all';
@@ -1873,11 +1952,16 @@ footer {
                 const card = document.createElement('div');
                 card.className = 'portfolio-card';
                 card.setAttribute('data-index', realIndex);
-                
-                const videoBadge = project.type === 'video' ? `<div class="video-badge"><i class="fas fa-play-circle"></i> Video</div>` : '';
+
+                let badge = '';
+                if (project.type === 'video') {
+                    badge = `<div class="video-badge"><i class="fas fa-play-circle"></i> Video</div>`;
+                } else if (project.type === 'app') {
+                    badge = `<div class="app-badge"><i class="fas fa-mobile-alt"></i> Aplikasi</div>`;
+                }
 
                 card.innerHTML = `
-                    ${videoBadge}
+                    ${badge}
                     <img class="card-image" src="${project.image}" alt="${project.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/default/800/500'">
                     <div class="card-content">
                         <h3>${project.title}</h3>
@@ -1916,6 +2000,9 @@ footer {
         const modalTech = document.getElementById('modalTech');
         const modalLiveLink = document.getElementById('modalLiveLink');
         const modalGithubLink = document.getElementById('modalGithubLink');
+        const modalDownloadGroup = document.getElementById('modalDownloadGroup');
+        const modalApkLink = document.getElementById('modalApkLink');
+        const modalIpaLink = document.getElementById('modalIpaLink');
         const modalClose = document.getElementById('modalClose');
         const modalCloseBtn = document.getElementById('modalCloseBtn');
         let currentIndex = 0;
@@ -1925,7 +2012,7 @@ footer {
             if (!project) return;
             currentIndex = index;
 
-            // Semak jika video atau gambar
+            // Semak jenis kandungan: video, imej biasa, atau aplikasi (apk/ipa)
             if (project.type === 'video' && project.video_embed) {
                 modalImg.style.display = 'none';
                 modalVideoContainer.style.display = 'block';
@@ -1941,19 +2028,30 @@ footer {
             modalCategory.textContent = project.category;
             modalTitle.textContent = project.title;
             modalDesc.textContent = project.description;
-            modalLiveLink.href = project.live_link || '#';
-            modalGithubLink.href = project.github_link || '#';
 
-            if (!project.live_link || project.live_link === '#') {
-                modalLiveLink.style.display = 'none';
-            } else {
+            // Pautan Luar (live_link) - hanya untuk projek 'code'
+            if (project.live_link && project.live_link !== '#') {
+                modalLiveLink.href = project.live_link;
                 modalLiveLink.style.display = 'inline-flex';
-            }
-            
-            if (!project.github_link || project.github_link === '#') {
-                modalGithubLink.style.display = 'none';
             } else {
+                modalLiveLink.style.display = 'none';
+            }
+
+            // GitHub - hanya untuk projek 'code'
+            if (project.github_link && project.github_link !== '#') {
+                modalGithubLink.href = project.github_link;
                 modalGithubLink.style.display = 'inline-flex';
+            } else {
+                modalGithubLink.style.display = 'none';
+            }
+
+            // Muat Turun Android (APK) & iOS (IPA) - hanya untuk projek 'app'
+            if (project.type === 'app') {
+                modalDownloadGroup.style.display = 'flex';
+                modalApkLink.href = project.apk_link || '#';
+                modalIpaLink.href = project.ipa_link || '#';
+            } else {
+                modalDownloadGroup.style.display = 'none';
             }
 
             modalTech.innerHTML = '';
@@ -1967,23 +2065,19 @@ footer {
             document.body.style.overflow = 'hidden';
         }
 
-        // TUKAR: Fungsi closeModal baru untuk matikan video sebelum tutup
+        // Fungsi closeModal - matikan video sebelum tutup supaya browser tak jem
         function closeModal() {
-            // Cari jika ada video sedang dimainkan di dalam popup
             const videoEl = modalVideoContainer.querySelector('video');
             
-            // Berhentikan (pause) video dengan selamat supaya browser tak jem
             if (videoEl) {
                 videoEl.pause();
                 videoEl.removeAttribute('src'); 
                 videoEl.load();
             }
 
-            // Tutup paparan popup
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
 
-            // Padam kotak video selepas 300ms (tunggu animasi popup tertutup)
             setTimeout(() => {
                 modalVideoContainer.innerHTML = ''; 
             }, 300);
@@ -2115,7 +2209,7 @@ footer {
                     submitBtn.disabled = true;
 
                     setTimeout(() => {
-                        showStatus('error', 'Error on line 2118');
+                        showStatus('success', '✅ Terima kasih! Mesej anda telah berjaya dihantar.');
                         form.reset();
                         submitBtn.innerHTML = '<i class="fas fa-check"></i> Dihantar!';
                         
