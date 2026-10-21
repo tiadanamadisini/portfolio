@@ -108,11 +108,18 @@
     c.width = 64;
     c.height = 256;
     const g = c.getContext('2d');
-    g.fillStyle = 'rgba(200,230,255,.55)';
+    /* legap di tengah, lut di tepi → tirai lembut, tebing tidak kelihatan rata di belakangnya */
+    const hg = g.createLinearGradient(0, 0, 64, 0);
+    hg.addColorStop(0, 'rgba(210,235,255,0)');
+    hg.addColorStop(0.18, 'rgba(220,240,255,.78)');
+    hg.addColorStop(0.5, 'rgba(235,246,255,.9)');
+    hg.addColorStop(0.82, 'rgba(220,240,255,.78)');
+    hg.addColorStop(1, 'rgba(210,235,255,0)');
+    g.fillStyle = hg;
     g.fillRect(0, 0, 64, 256);
     for (let i = 0; i < 260; i++) {
       const x = Math.random() * 64, y = Math.random() * 256, l = 20 + Math.random() * 60;
-      g.strokeStyle = 'rgba(255,255,255,' + (0.25 + Math.random() * 0.6) + ')';
+      g.strokeStyle = Math.random() < 0.3 ? 'rgba(150,190,225,' + (0.25 + Math.random() * 0.35) + ')' : 'rgba(255,255,255,' + (0.35 + Math.random() * 0.6) + ')';
       g.lineWidth = 1 + Math.random() * 2.5;
       g.beginPath();
       g.moveTo(x, y);
@@ -145,26 +152,51 @@
     const tex = fallTex();
     tex.repeat.set(1, Math.max(1, hgt / 6));
     const mat = new T.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, depthWrite: false, side: T.DoubleSide, color: 0xe8f6ff });
-    /* tirai melengkung (sedikit ke depan di bawah) */
-    const seg = 10, PP = [], U = [], I = [];
-    for (let j = 0; j <= seg; j++) {
-      const t = j / seg, y = top[1] + 0.25 - t * hgt, out = 1.2 * Math.sin(t * 1.4) + 0.6 * t;
+    /* tirai: pada setiap ketinggian, tolak ke hadapan sehingga berada DI HADAPAN muka tebing (bukan terbenam);
+       berhenti di titik hentaman pertama dengan tanah (aliran diteruskan sungai ke kolam) */
+    const seg = 18, PP = [], U = [], I = [];
+    let outP = 0, yEnd = bot[1];
+    const hAt = (s2, wdt) => {
+      let hmax = -1e9;
+      for (const l of [-0.3, 0, 0.3]) hmax = Math.max(hmax, W.H(top[0] + tx * s2 - tz * l * wdt, top[2] + tz * s2 + tx * l * wdt));
+      return hmax;
+    };
+    const clearAt = (y, wdt) => {
+      for (let s2 = outP; s2 < outP + 6; s2 += 0.12) if (hAt(s2, wdt) < y - 0.3) return s2 + 0.25;
+      return null;
+    };
+    const row = (out, y, t, wdt) => {
       for (let i = 0; i <= 1; i++) {
-        const s = (i - 0.5) * wd * (1 + 0.25 * t);
-        PP.push(top[0] - tz * s + tx * out, y, top[2] + tx * s + tz * out);
+        const s2 = (i - 0.5) * wdt;
+        PP.push(top[0] - tz * s2 + tx * out, y, top[2] + tx * s2 + tz * out);
         U.push(i, t * 2);
       }
-      if (j) {
-        const k = j * 2;
-        I.push(k - 2, k, k - 1, k - 1, k, k + 1);
+      const k = PP.length / 3 - 2;
+      if (k >= 2) I.push(k - 2, k, k - 1, k - 1, k, k + 1);
+    };
+    for (let j = 0; j <= seg; j++) {
+      const t = j / seg, y = top[1] + 0.25 - t * hgt, wdt = wd * (1 + 0.22 * t);
+      const c = clearAt(y, wdt);
+      if (c == null || (j > 1 && c - outP > 1.2)) {
+        /* hentam tanah: baris terakhir tepat di permukaan */
+        yEnd = hAt(outP, wdt) + 0.08;
+        row(outP, yEnd, t, wdt);
+        break;
       }
+      outP = Math.max(outP, c);
+      yEnd = y;
+      row(outP, y, t, wdt);
     }
+    /* kaki tirai sebenar → buih & wap di situ */
+    const base = [top[0] + tx * outP, yEnd, top[2] + tz * outP];
+    W.fallInfo.base = base;
+    W.fallInfo.dir = [tx, tz];
     const g = new T.BufferGeometry();
     g.setAttribute('position', new T.Float32BufferAttribute(PP, 3));
     g.setAttribute('uv', new T.Float32BufferAttribute(U, 2));
     g.setIndex(I);
     const m = new T.Mesh(g, mat);
-    m.renderOrder = 3;
+    /* tiada renderOrder: diisih ikut jarak bersama sprite telus lain (elak 'potongan' segi empat) */
     m.userData.v8 = 1;
     scene.add(m);
     /* lapisan kedua lebih pantas (kedalaman) — High ke atas */
@@ -174,13 +206,12 @@
       t2.needsUpdate = true;
       m2 = new T.Mesh(g, new T.MeshBasicMaterial({ map: t2, transparent: true, opacity: 0.55, depthWrite: false, side: T.DoubleSide, blending: T.AdditiveBlending }));
       m2.scale.set(1, 1, 1);
-      m2.renderOrder = 4;
       scene.add(m2);
     }
     /* buih di kaki air terjun */
     const fm = new T.Mesh(new T.RingGeometry(0.5, 1, 24), new T.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6, depthWrite: false }));
     fm.rotation.x = -Math.PI / 2;
-    fm.position.set(bot[0] + tx * 1.6, bot[1] + 0.06, bot[2] + tz * 1.6);
+    fm.position.set(base[0] + tx * 0.6, base[1] + 0.06, base[2] + tz * 0.6);
     fm.scale.setScalar(wd * 0.7);
     scene.add(fm);
     /* wap / percikan */
@@ -212,7 +243,7 @@
         if (u.t > 1) u.t -= 1;
         s.visible = d < 140;
         const r = u.t;
-        s.position.set(bot[0] + tx * (1.5 + u.oz) - tz * u.ox * (1 + r), bot[1] + 0.3 + r * 6, bot[2] + tz * (1.5 + u.oz) + tx * u.ox * (1 + r));
+        s.position.set(base[0] + tx * (0.6 + u.oz) - tz * u.ox * (1 + r), base[1] + 0.3 + r * 6, base[2] + tz * (0.6 + u.oz) + tx * u.ox * (1 + r));
         s.scale.setScalar(1.4 + r * 4.5);
         s.material.opacity = 0.42;
       });

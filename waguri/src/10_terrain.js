@@ -39,7 +39,7 @@
     g.fillText(txt, 256, 50);
     const tx = new T.CanvasTexture(c);
     tx.encoding = T.sRGBEncoding;
-    const s = new T.Sprite(new T.SpriteMaterial({ map: tx, transparent: true }));
+    const s = new T.Sprite(new T.SpriteMaterial({ map: tx, transparent: true, depthWrite: false }));
     const k = sc || 1;
     s.scale.set(4.6 * k, 0.86 * k, 1);
     s.position.set(x, y, z);

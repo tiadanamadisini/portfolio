@@ -12,7 +12,7 @@ Petunjuk status: ✅ siap & diuji automatik · 🟡 sebahagian · ⬜ belum · �
 | 4. NPC & AI | 300 NPC berjadual | 🟡 27 NPC Kampung Timur dengan FSM penuh + 28 NPC asal | ujian jadual & laluan |
 | 5. Quest, combat, event, progression | | ✅ untuk vertical slice | ujian aliran Bab Timur + bos |
 | 6. World expansion | 12 kampung, 5 bandar, 20 gua, 8 dungeon, 15 pulau, 30 rahsia | ⬜ (1 kampung, 2 gua, 1 dungeon, 6 rahsia siap) | — |
-| 7. Optimasi, ujian, APK | | 🟡 APK bertandatangan + 33 ujian automatik; ⚠️ prestasi telefon belum diukur | `dist/*.apk`, `tests/smoke.js` |
+| 7. Optimasi, ujian, APK | | 🟡 APK bertandatangan + 38 ujian automatik (33 fungsi + 5 tahap grafik); ⚠️ prestasi telefon belum diukur | `dist/*.apk`, `tests/smoke.js` |
 
 ## Vertical slice v17 — apa yang benar-benar ada
 

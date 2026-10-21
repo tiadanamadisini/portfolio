@@ -2,6 +2,8 @@
 
 Open-world RPG 3D (Three.js, WebView Android) yang dibina **di atas v16.1 tanpa membuang apa-apa**. v17 ialah *vertical slice* pertama perluasan dunia mengikut peta rujukan.
 
+![Air Terjun Tirai Perak, Gua Tirai Air dan Kampung Timur di atas tebing (tahap High)](docs/img/air_terjun_high.png)
+
 | Dokumen | Isi |
 |---|---|
 | [`docs/AUDIT_v16_1.md`](docs/AUDIT_v16_1.md) | Fasa 1: audit APK, kod dan sistem asal (angka masa jalan) |

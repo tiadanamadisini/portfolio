@@ -320,11 +320,37 @@
     });
   }
 
+  /* kamera tidak terbenam dalam kanopi pokok: tarik kamera ke hadapan pokok yang menghalang (kawasan V17) */
+  function camGuard() {
+    const hd = new T.Vector3();
+    W.tick(() => {
+      if (W.inCave || !(P.x < -200 && P.z < W.zEdge + 10)) return;
+      const c = camera.position;
+      hd.set(P.x, P.y + 1.5, P.z);
+      const dx = c.x - hd.x, dz = c.z - hd.z, L2 = dx * dx + dz * dz;
+      if (L2 < 1) return;
+      let best = 1;
+      for (const o of W.colNear) {
+        if (!(o.r > 0 && o.r < 1)) continue; /* pokok sahaja (bukan rumah) */
+        const R = o.r * 4.4, ox = o.x - hd.x, oz = o.z - hd.z, t = (ox * dx + oz * dz) / L2;
+        if (t < 0.1 || t > 1.05) continue;
+        const ex = ox - t * dx, ez = oz - t * dz;
+        if (ex * ex + ez * ez > R * R) continue;
+        const y = hd.y + (c.y - hd.y) * t, base = W.H(o.x, o.z);
+        if (y < base + 2.2) continue; /* di bawah kanopi (batang) — biar */
+        const tc = Math.max(0.12, t - R / Math.sqrt(L2));
+        if (tc < best) best = tc;
+      }
+      if (best < 1) c.set(hd.x + dx * best, hd.y + (c.y - hd.y) * best, hd.z + dz * best);
+    });
+  }
+
   when14(
     () => W.terOK && W.waterOK,
     () => {
       meadow();
       grass();
+      camGuard();
       W.floraOK = 1;
     }
   );

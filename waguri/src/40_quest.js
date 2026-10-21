@@ -443,7 +443,10 @@
         eyes.add(m);
       });
       const f = W.fallInfo;
-      eyes.position.set(f.top[0] - 1, f.bot[1] + 4, f.top[2] - 1.2);
+      /* tepat di belakang tirai air (di antara tirai & muka tebing) */
+      const b = f.base || f.bot, d = f.dir || [0, 1];
+      eyes.position.set(b[0] - d[0] * 0.25, b[1] + 4.5, b[2] - d[1] * 0.25);
+      eyes.rotation.y = Math.atan2(d[0], d[1]);
       scene.add(eyes);
     }
     eyes.visible = on;

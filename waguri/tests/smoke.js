@@ -1,5 +1,5 @@
 /* Ujian asap Kediaman Isekai Waguri v17 (Chromium tanpa kepala, WebGL perisian SwiftShader).
-   node tests/smoke.js [--quick] [--out DIR]
+   node tests/smoke.js [--quick] [--gfx lite,biasa,sine,ultra,ext] [--out DIR]
    memerlukan: npm i playwright-core (dalam tests/) + Chromium (PLAYWRIGHT_BROWSERS_PATH atau CHROME=/laluan/chrome)
    NOTA: SwiftShader sangat perlahan (~1–3 FPS) — FPS di sini BUKAN ukuran prestasi telefon. */
 const { chromium } = require('playwright-core');
@@ -311,7 +311,8 @@ const FF = `window.__ff=(sec,dt)=>{dt=dt||0.05;let now=Math.max(performance.now(
   await ctx.close();
   /* ---------- 7. lima tahap grafik ---------- */
   if (!QUICK) {
-    for (const g of ['lite', 'biasa', 'sine', 'ultra', 'ext']) {
+    const GF = process.argv.includes('--gfx') ? process.argv[process.argv.indexOf('--gfx') + 1].split(',') : ['lite', 'biasa', 'sine', 'ultra', 'ext'];
+    for (const g of GF) {
       const t = await boot(browser, V17, g);
       const r = await t.p.evaluate(() => {
         try {
