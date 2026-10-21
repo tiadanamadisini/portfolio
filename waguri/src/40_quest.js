@@ -304,6 +304,8 @@
       d3.scale.setScalar(1.05);
       d3.updateMatrix();
       im.setMatrixAt(i, d3.matrix);
+      /* WAJIB: bahan pokok dikongsi dengan InstancedMesh berwarna → r128 ranap jika instanceColor tiada */
+      im.setColorAt(i, new T.Color(1, 1, 1));
       W.addCol({ x, z, r: 0.5 });
       const mk = spr('🥥', x + 0.8, z, W.H(x, z) + 5.6);
       ST.push({ x, z, r: 2.6, v: () => S7().kp !== GS.day + ':' + i && qs('s1').s === 1, lb: () => '🥥 Petik kelapa', f() {

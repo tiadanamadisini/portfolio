@@ -8725,7 +8725,7 @@ setTimeout(()=>{try{if(window.mpOpen&&!window.mpOpen.__m16)hook()}catch(e){}},60
   const C = (r, g, b) => new T.Color(r, g, b);
   const cG1 = C(0.4, 0.66, 0.22), cG2 = C(0.28, 0.55, 0.15), cDry = C(0.62, 0.63, 0.3), cFor = C(0.2, 0.35, 0.12), cFor2 = C(0.33, 0.29, 0.15),
     cRk = C(0.5, 0.48, 0.42), cRk2 = C(0.36, 0.35, 0.31), cSnow = C(0.93, 0.95, 0.98), cSand = C(0.82, 0.73, 0.5), cMud = C(0.42, 0.34, 0.21),
-    cDirt = C(0.6, 0.47, 0.3), cMead = C(0.5, 0.7, 0.26), cTer = C(0.46, 0.55, 0.2), cVil = C(0.58, 0.6, 0.32);
+    cSst = C(0.82, 0.68, 0.45), cSst2 = C(0.7, 0.52, 0.34), cDirt = C(0.6, 0.47, 0.3), cMead = C(0.5, 0.7, 0.26), cTer = C(0.46, 0.55, 0.2), cVil = C(0.58, 0.6, 0.32);
   const tc = new T.Color(), t2 = new T.Color();
   function colAt(x, z, h, sl, out) {
     const n1 = 0.5 + 0.5 * Math.sin(x * 0.045 + Math.sin(z * 0.031) * 2) * Math.cos(z * 0.052 - x * 0.013),
@@ -8748,8 +8748,11 @@ setTimeout(()=>{try{if(window.mpOpen&&!window.mpOpen.__m16)hook()}catch(e){}},60
     if (dv < F.village[2]) out.lerp(cVil, sm((F.village[2] - dv) / 20) * 0.35);
     out.lerp(cRk, sm((h - 30) / 12) * 0.8);
     out.lerp(cRk2, sm((sl - 0.8) / 0.55) * 0.85);
-    /* salji: gunung bersalji di sempadan utara & barat */
-    const sn = h - 44 - 6 * n2 + 4 * sl;
+    /* utara (ikut peta rujukan): bukit batu pasir → pintu ke Padang Pasir */
+    const ds = sm((-z - 262) / 26) * (1 - sm((-x - 486) / 20));
+    if (ds > 0) out.lerp(sl > 1 ? cSst2 : cSst, ds * 0.85);
+    /* salji: hanya puncak tinggi banjaran barat */
+    const sn = (h - 44 - 6 * n2 + 4 * sl) * sm((-x - 486) / 18);
     if (sn > 0) out.lerp(cSnow, sm(sn / 7) * (sl > 1.6 ? 0.55 : 0.95));
     /* pasir tasik & lumpur sungai */
     const ld = W.lakeD(x, z);
@@ -9320,12 +9323,12 @@ setTimeout(()=>{try{if(window.mpOpen&&!window.mpOpen.__m16)hook()}catch(e){}},60
         const px = x + r() * spc, pz = z + r() * spc, d = W.FDr(px, pz);
         if (r() > d) continue;
         const h = W.H(px, pz);
-        if (h > 56 || h < 1.2) continue;
+        if (h > 56 || h < 1.2 || (pz < -276 && px > -486 && r() < 0.8)) continue; /* bukit pasir utara: jarang pokok */
         const sl = Math.abs(W.H(px + 1, pz) - W.H(px - 1, pz)) + Math.abs(W.H(px, pz + 1) - W.H(px, pz - 1));
         if (sl > 3.4) continue;
         const u = r();
         let ty;
-        if (h > 33) ty = u < 0.8 ? 'snow' : 'pine';
+        if (h > 33) ty = px < -490 ? (u < 0.8 ? 'snow' : 'pine') : u < 0.5 ? 'pine' : 'bush';
         else if (W.riverD(px, pz) < 12 && u < 0.45) ty = 'bamboo';
         else if (W.lakeD(px, pz) < 1.6 && u < 0.4) ty = 'kelapa';
         else if (pz < -196) ty = u < 0.5 ? 'pine' : u < 0.8 ? 'tall' : u < 0.9 ? 'leaf' : 'bush';
@@ -10665,8 +10668,8 @@ setTimeout(()=>{try{if(window.mpOpen&&!window.mpOpen.__m16)hook()}catch(e){}},60
     tx('💧 Tasik Biru', F.lake[0], F.lake[1] + 28, 14, '#0d3b7a');
     tx('🌸 Padang Bunga', F.meadow[0], F.meadow[1] - 6, 13, '#7a1a4a');
     tx('🌾 Ladang', F.farm[0], F.farm[1] + 22, 11, '#3a3a10');
-    tx('⛰ Banjaran Utara (bersalji)', -390, -296, 13, '#1d2a1d');
-    tx('⛰ Banjaran Barat', -528, -120, 13, '#1d2a1d');
+    tx('🏜 Bukit Pasir → Padang Pasir', -390, -296, 13, '#5a3a16');
+    tx('🏔 Banjaran Barat (bersalji) · jalan ke Kerajaan tertimbus', -526, -120, 12, '#1d2a1d');
     tx('🌲 Hutan Tebal', -400, -230, 12, '#0d3b14');
     tx('Celah Gunung', -228, -26, 11, '#5a3a16');
     tx('Sungai Tirai Perak', -312, -214, 11, '#0d3b7a');
@@ -10950,9 +10953,9 @@ setTimeout(()=>{try{if(window.mpOpen&&!window.mpOpen.__m16)hook()}catch(e){}},60
     SP({
       id: 'jalil', n: 'Pak Ngah Jalil', home: 'r16', job: 'Pencari hasil hutan', per: 'pendiam', fam: { adik: 'bujang' }, kawan: ['seman'],
       look: { c: 0x556b2f, h: 0x3a3a3a, hat: 'straw' },
-      bio: 'Abang kepada Bujang. Mencari rotan, madu lebah dan damar di hutan. Pernah tersesat tiga hari di Banjaran Utara.',
+      bio: 'Abang kepada Bujang. Mencari rotan, madu lebah dan damar di hutan. Pernah tersesat tiga hari di Bukit Pasir utara — katanya di seberang sana ada padang pasir tak berpenghujung.',
       sch: [[0, 'sleep', 'in'], [5.5, 'idle', 'home'], [6.5, 'work:forage', 'hutan'], [12, 'eat', 'wakaf'], [13, 'work:forage', 'hutan'], [17.5, 'work:shop', 'dataran'], [19.5, 'idle', 'home'], [21, 'sleep', 'in']],
-      say: ['Hutan memberi kalau kita tak tamak.', 'Madu lebah hutan ni manisnya lain.', 'Salji di banjaran utara tak pernah cair.'],
+      say: ['Hutan memberi kalau kita tak tamak.', 'Madu lebah hutan ni manisnya lain.', 'Di seberang Bukit Pasir, angin bawa pasir panas. Salji pula cuma di puncak barat.'],
       work: ['Rotan ini cukup untuk sepuluh bakul.'],
       rain: 'Hujan, lintah keluar. Pakai kasut.', night: 'Hutan malam milik harimau kumbang.',
       lo: 'Hm.', hi: 'Ambil madu ni. Untuk kawan.',
@@ -12919,6 +12922,8 @@ body.m16 #dg17,body.m16 #bk17{opacity:0!important;pointer-events:none!important}
       d3.scale.setScalar(1.05);
       d3.updateMatrix();
       im.setMatrixAt(i, d3.matrix);
+      /* WAJIB: bahan pokok dikongsi dengan InstancedMesh berwarna → r128 ranap jika instanceColor tiada */
+      im.setColorAt(i, new T.Color(1, 1, 1));
       W.addCol({ x, z, r: 0.5 });
       const mk = spr('🥥', x + 0.8, z, W.H(x, z) + 5.6);
       ST.push({ x, z, r: 2.6, v: () => S7().kp !== GS.day + ':' + i && qs('s1').s === 1, lb: () => '🥥 Petik kelapa', f() {
@@ -12991,7 +12996,7 @@ body.m16 #dg17,body.m16 #bk17{opacity:0!important;pointer-events:none!important}
     /* LOKASI RAHSIA (6) */
     const SEC = [
       ['helang', 'Puncak Tebing Helang', W.F.helang, 'tablet'], ['islet', 'Pulau Kecil Tasik Biru', W.F.islet, 'tablet'], ['kelawar', 'Sarang Gua Kelawar', [W.F.gkel[0] - 1.5, W.F.gkel[1]], 'tablet'],
-      ['beringin', 'Lubang Akar Beringin', [V[0] - 7.5, V[1] - 5], 'peti'], ['salji', 'Pondok Salji Banjaran Utara', [-372, -298], 'peti_besar'], ['kuil', 'Mezbah Kuil Lama', W.F.kuil, 'peti']
+      ['beringin', 'Lubang Akar Beringin', [V[0] - 7.5, V[1] - 5], 'peti'], ['salji', 'Puncak Salji Banjaran Barat', [-518, -196], 'peti_besar'], ['kuil', 'Mezbah Kuil Lama', W.F.kuil, 'peti']
     ];
     W.SEC = SEC;
     SEC.forEach(([id, n, [x, z], tb]) => {
@@ -13601,7 +13606,7 @@ body.m16 #dg17,body.m16 #bk17{opacity:0!important;pointer-events:none!important}
     const k = W.wx(), se = W.season();
     h += '<div class="cd"><b>' + k.ic + ' ' + k.n + ' · ' + se.ic + ' ' + se.n + '</b><br><small>Musim bertukar setiap 7 hari. Hujan: ikan jarang lebih galak, penduduk berteduh. Ribut: kilat & pokok tumbang. Musim Menuai: padi menguning.</small></div>';
     h += '<h4>📍 Kawasan</h4>';
-    [['🏘 Kampung Timur', '27 penduduk · kedai · tukang besi · tenun · balai'], ['💦 Air Terjun Tirai Perak', 'kolam, wap air, 🕳 Gua Tirai Air (dungeon)'], ['💧 Tasik Biru', 'jeti memancing, pulau kecil, pokok kelapa'], ['🌸 Padang Bunga', 'bunga embun waktu subuh, pokok sakura'], ['🌾 Ladang Padi Bukit', 'diairi kincir air, sasaran babi hutan'], ['⛰ Banjaran Utara & Barat', 'gunung bersalji, hutan tebal, harimau kumbang'], ['⛩ Kuil Lama', '???']].forEach(([a, b]) => (h += '<div class="cd"><b>' + a + '</b><br><small>' + b + '</small></div>'));
+    [['🏘 Kampung Timur', '27 penduduk · kedai · tukang besi · tenun · balai'], ['💦 Air Terjun Tirai Perak', 'kolam, wap air, 🕳 Gua Tirai Air (dungeon)'], ['💧 Tasik Biru', 'jeti memancing, pulau kecil, pokok kelapa'], ['🌸 Padang Bunga', 'bunga embun waktu subuh, pokok sakura'], ['🌾 Ladang Padi Bukit', 'diairi kincir air, sasaran babi hutan'], ['🏜 Bukit Pasir Utara', 'pintu ke Padang Pasir (wilayah akan datang), hutan tebal, harimau kumbang'], ['🏔 Banjaran Barat', 'puncak bersalji; jalan ke Kerajaan tertimbus runtuhan'], ['⛩ Kuil Lama', '???']].forEach(([a, b]) => (h += '<div class="cd"><b>' + a + '</b><br><small>' + b + '</small></div>'));
     h += '<h4>🌍 Peristiwa dunia</h4><div class="cd"><small>' + Object.values(W.evt.D).map((e) => e.n).join(' · ') + '<br>Peristiwa berlaku mengikut masa, cuaca & kemajuan cerita ketika anda berada di Lembah Timur.' + (W.evt.cur ? '<br><b style="color:#fca5a5">SEDANG BERLAKU: ' + W.evt.cur.n + '</b>' : '') + '</small></div>';
     return h;
   }
@@ -13637,7 +13642,8 @@ body.m16 #dg17,body.m16 #bk17{opacity:0!important;pointer-events:none!important}
     else if (W.lakeD(P.x, P.z) < 1.6) z = '💧 Tasik Biru';
     else if (Math.hypot(P.x - W.F.meadow[0], P.z - W.F.meadow[1]) < W.F.meadow[2]) z = '🌸 Padang Bunga';
     else if (Math.hypot(P.x - W.F.fall[0], P.z - W.F.fall[1]) < 30) z = '💦 Air Terjun Tirai Perak';
-    else if (P.z < -250) z = '⛰ Banjaran Utara';
+    else if (P.z < -262 && P.x > -486) z = '🏜 Bukit Pasir Utara';
+    else if (P.x < -490) z = '🏔 Banjaran Barat';
     if (z && z !== lastZone) banner(z, '');
     if (z) lastZone = z;
   });
@@ -13648,7 +13654,7 @@ body.m16 #dg17,body.m16 #bk17{opacity:0!important;pointer-events:none!important}
     S7().wn17 = 1;
     save();
     QS14.dlg('Kediaman Isekai Waguri v17', '🏞',
-      '<b>Selamat datang ke v17 — LEMBAH TIMUR!</b><br>🪧 <b>Celah Gunung</b> terbuka di hujung barat Laluan Hutan Jauh → kawasan baharu dua kali ganda dunia lama<br>🏘 <b>Kampung Timur</b>: 27 penduduk dengan jadual harian, kerja, keluarga, memori & reputasi<br>💦 Air terjun, sungai mengalir, Tasik Biru, padang bunga, gunung bersalji<br>🕳 Dungeon <b>Gua Tirai Air</b> + bos 3 fasa <b>Kelembai Batu</b><br>🌀 Elak · 🛡 Tangkis · ✨ Tangkisan sempurna · ⚔️ Serangan berat · 🌳 Pokok kemahiran · ⚒️ Naik taraf senjata · 🔱 Tombak<br>🌦 Cuaca & musim · 🌍 peristiwa dunia · 🗝 rahsia · 🗺 kabus peta<br>⚙️ 5 tahap grafik: Biasa · Medium · High · Ultra · Extreme',
+      '<b>Selamat datang ke v17 — LEMBAH TIMUR!</b><br>🪧 <b>Celah Gunung</b> terbuka di hujung barat Laluan Hutan Jauh → dunia kini lebih dua kali ganda luasnya<br>🏘 <b>Kampung Timur</b>: 27 penduduk dengan jadual harian, kerja, keluarga, memori & reputasi<br>💦 Air terjun, sungai mengalir, Tasik Biru, padang bunga, gunung bersalji<br>🕳 Dungeon <b>Gua Tirai Air</b> + bos 3 fasa <b>Kelembai Batu</b><br>🌀 Elak · 🛡 Tangkis · ✨ Tangkisan sempurna · ⚔️ Serangan berat · 🌳 Pokok kemahiran · ⚒️ Naik taraf senjata · 🔱 Tombak<br>🌦 Cuaca & musim · 🌍 peristiwa dunia · 🗝 rahsia · 🗺 kabus peta<br>⚙️ 5 tahap grafik: Biasa · Medium · High · Ultra · Extreme',
       '📖 Bab Timur bermula: bercakap dengan <b>Tok Ketua</b> (Lv 12+) atau terus ke Celah Gunung. Tekan <b>🧭 Lembah Timur</b> untuk misi & kemahiran.',
       [['Jom teroka!', null, 1]]);
   }
