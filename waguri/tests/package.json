@@ -1,0 +1,1 @@
+{ "name": "waguri-tests", "private": true, "scripts": { "smoke": "node smoke.js" }, "dependencies": { "playwright-core": "1.56.1" } }
