@@ -48,4 +48,4 @@ node tools/test-acceptance.mjs                 # ujian penerimaan
 node tools/verify-map.mjs && python3 -I tools/verify_map.py   # semakan peta -> docs/03
 ```
 
-APK: jalankan aliran kerja **Isekai Waguri APK** di tab Actions GitHub (atau `gradle assembleDebug` dalam `android/` dengan Android SDK). APK belum diuji pada peranti sebenar — lihat laporan ujian.
+APK: aliran kerja **Isekai Waguri APK** (tab Actions GitHub) membina APK debug secara automatik setiap kali folder ini berubah — muat turun artifak `KediamanIsekaiWaguri-v19-debug-apk`. Boleh juga `gradle assembleDebug` dalam `android/` dengan Android SDK. APK **belum diuji pada telefon sebenar** — lihat laporan ujian.

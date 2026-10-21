@@ -31,7 +31,7 @@ md.append('\n## B. Syarat Seksyen 13 (Final Acceptance Test)\n')
 md.append('| # | Syarat | Status | Bukti / catatan |\n|---|---|---|---|')
 chk = {c[2:].split(' — ')[0]: c[0] == '✔' for c in nb.get('checks', [])}
 items = [
- (1, 'APK membuka loading screen terlebih dahulu', NL, 'Dalam HTML: ✅ logo + loading muncul dahulu (a1). APK: projek pembalut WebView disediakan (`android/`) tetapi **belum dibina/diuji** — SDK Android tidak boleh dimuat turun dalam persekitaran ini; bina melalui GitHub Actions.'),
+ (1, 'APK membuka loading screen terlebih dahulu', NL, 'HTML: ✅ logo + loading muncul dahulu (a1). APK debug ✅ **berjaya dibina** oleh GitHub Actions (aliran kerja *Isekai Waguri APK*, artifak `KediamanIsekaiWaguri-v19-debug-apk`, 5.1 MB) — tetapi **belum dipasang/diuji pada telefon Android sebenar**.'),
  (2, 'Progress loading menunjukkan kemajuan sebenar', st(ok('baharu-biasa') and nb.get('monotonic')), 'Berat tugasan = masa/bait sebenar; menaik secara monoton (Fasa A %s, Fasa B %s sampel). Bait nyahmampat dipaparkan untuk aset gzip.' % (len(nb.get('progressA', [])), len(nb.get('progressB', [])))),
  (3, 'Butang PLAY hanya aktif selepas aset kritikal siap', st(ok('baharu-biasa') and ok('ralat-fasa-b-retry')), 'PLAY hanya dipaparkan selepas 17 semakan kritikal lulus; input permainan disekat semasa loading (`gameInputBlocked` = %s semasa, %s selepas).' % (nb.get('blockedDuring'), nb.get('blockedAfter'))),
  (4, 'Main Character muncul dengan model & animasi yang betul', st(ok('high-glb')), 'High: GLB sedia, %s animasi; Biasa: model prosedural (mengikut reka bentuk asal tahap ringan).' % hi.get('anim')),
@@ -64,7 +64,7 @@ md.append('\n## E. Ciri yang diminta tetapi BELUM dilaksanakan dalam v19\n')
 for x in ['12 kampung · 5 bandar · 20 gua · 8 dungeon · 15 pulau · 30 lokasi rahsia (pengembangan 10×)', '300 NPC dengan jadual harian, memori & reputasi',
           '100/300/100/150/50/30 misi utama/sampingan/dunia/peristiwa/tersembunyi/bos', 'Dodge, parry, block, serangan berat, spear, pokok kemahiran, crafting senjata',
           'Mendaki, menyelam, menunggang kuda, memburu, hiasan rumah, musim', 'Grafik PBR bertekstur, GI, refleksi air sebenar, sungai mengalir, kabus volumetrik baharu',
-          'World streaming & LOD bangunan', 'APK diuji pada peranti Android sebenar']:
+          'World streaming & LOD bangunan', 'APK diuji pada peranti Android sebenar (APK sudah dibina oleh CI, belum dipasang)']:
     md.append('- ⛔ ' + x)
 md.append('\nPelan terperinci: [05-PELAN-FASA.md](05-PELAN-FASA.md).')
 open(os.path.join(ROOT, 'docs', '04-LAPORAN-UJIAN.md'), 'w', encoding='utf-8').write('\n'.join(md) + '\n')

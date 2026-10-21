@@ -71,7 +71,7 @@ Jumlah sasaran: 12 kampung, 5 bandar, 20 gua, 8 dungeon (setiap satu bos unik), 
 
 ## Fasa 7 — Pengoptimuman, ujian & Android
 
-- APK: projek pembalut WebView sedia (`android/`, aliran kerja GitHub Actions `.github/workflows/isekai-waguri-apk.yml`) — **belum dibina/diuji** (SDK Android tidak boleh dimuat turun dalam persekitaran pembangunan ini).
+- APK: projek pembalut WebView (`android/`) dibina oleh GitHub Actions (`.github/workflows/isekai-waguri-apk.yml`, APK debug ≈5 MB) — **belum dipasang/diuji pada telefon sebenar**; APK release memerlukan keystore tandatangan anda sendiri.
 - Ujian peranti sebenar: 3 telefon (rendah/sederhana/tinggi) × 5 tahap grafik, ukur fps, suhu, RAM, masa loading.
 - Mampatan aset (KTX2), pemisahan aset besar keluar daripada HTML (aset APK), had memori WebView.
 - **Keputusan enjin**: kekal three.js jika Fasa 3–6 mencapai sasaran fps; jika tidak (terutama world streaming 10× di telefon kelas rendah), pertimbangkan Godot 4 (Mobile renderer) dengan memindahkan data dunia (`world19-data`, `landmarks.json`) dan sistem misi (format JSON) yang sudah dipisahkan.
