@@ -1,0 +1,36 @@
+# Bina APK Kediaman Isekai Waguri (pembalut WebView) — hanya bila folder isekai-waguri berubah, atau dijalankan secara manual.
+name: Isekai Waguri APK
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'isekai-waguri/**'
+      - '.github/workflows/isekai-waguri-apk.yml'
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: isekai-waguri
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+      - name: Bina game satu fail (dist/)
+        run: node tools/build.mjs
+      - name: Bina APK debug
+        working-directory: isekai-waguri/android
+        run: gradle --no-daemon assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KediamanIsekaiWaguri-v19-debug-apk
+          path: isekai-waguri/android/app/build/outputs/apk/debug/*.apk

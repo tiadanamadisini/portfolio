@@ -1,0 +1,9 @@
+<resources>
+    <!-- Latar gelap yang sama dengan skrin logo game supaya tiada kilatan putih semasa WebView dimulakan -->
+    <style name="Theme.Waguri" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/boot_bg</item>
+        <item name="android:statusBarColor">@color/boot_bg</item>
+        <item name="android:navigationBarColor">@color/boot_bg</item>
+    </style>
+    <color name="boot_bg">#0B1020</color>
+</resources>

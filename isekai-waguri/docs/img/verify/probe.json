@@ -1,0 +1,952 @@
+{
+ "loc": [
+  {
+   "n": "Kerajaan",
+   "x": -497.6,
+   "z": -50,
+   "h": 9.09,
+   "wet": false,
+   "pin": [
+    -497.6,
+    -50
+   ],
+   "cls": 11
+  },
+  {
+   "n": "Sawah Padi",
+   "x": -502.4,
+   "z": -167.6,
+   "h": 1.92,
+   "wet": false,
+   "pin": [
+    -502.4,
+    -167.6
+   ],
+   "cls": 6
+  },
+  {
+   "n": "Gunung Utara",
+   "x": -764,
+   "z": -348.4,
+   "h": 72.7,
+   "wet": false,
+   "pin": [
+    -764.1,
+    -351.4
+   ],
+   "cls": 7
+  },
+  {
+   "n": "Gua Salji",
+   "x": -670.4,
+   "z": -250.8,
+   "h": 19.19,
+   "wet": false,
+   "pin": [
+    -676.6,
+    -255
+   ],
+   "cls": 6
+  },
+  {
+   "n": "Laluan Hutan Jauh",
+   "x": -648,
+   "z": -316.4,
+   "h": 4.62,
+   "wet": false,
+   "pin": [
+    -778.5,
+    -374.2
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Kampung Utara",
+   "x": -500,
+   "z": -290,
+   "h": 2.38,
+   "wet": false,
+   "pin": [
+    -500,
+    -290
+   ],
+   "cls": 10
+  },
+  {
+   "n": "Hutan Barat",
+   "x": -788.8,
+   "z": -146,
+   "h": 4.85,
+   "wet": false,
+   "pin": [
+    -788.8,
+    -146
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Kebun Buah",
+   "x": -788,
+   "z": -39.6,
+   "h": 4.52,
+   "wet": false,
+   "pin": [
+    -788,
+    -39.6
+   ],
+   "cls": 5
+  },
+  {
+   "n": "Kandang Lembu",
+   "x": -788,
+   "z": 51.6,
+   "h": 4.15,
+   "wet": false,
+   "pin": [
+    -788,
+    51.6
+   ],
+   "cls": 6
+  },
+  {
+   "n": "Pantai Barat",
+   "x": -976,
+   "z": 58,
+   "h": 1.81,
+   "wet": false,
+   "pin": [
+    -976,
+    58
+   ],
+   "cls": 2
+  },
+  {
+   "n": "Pelabuhan Barat",
+   "x": -881.6,
+   "z": 118.8,
+   "h": 2.86,
+   "wet": false,
+   "pin": [
+    -881.6,
+    118.8
+   ],
+   "cls": 10
+  },
+  {
+   "n": "Padang Pasir",
+   "x": -280,
+   "z": -266,
+   "h": 4.42,
+   "wet": false,
+   "pin": [
+    -280,
+    -266
+   ],
+   "cls": 8
+  },
+  {
+   "n": "Runtuhan Purba",
+   "x": -124,
+   "z": -268.4,
+   "h": 9.25,
+   "wet": false,
+   "pin": [
+    -124,
+    -268.4
+   ],
+   "cls": 3
+  },
+  {
+   "n": "Kawasan Larangan",
+   "x": 20,
+   "z": -319.6,
+   "h": 51.8,
+   "wet": false,
+   "pin": [
+    20.7,
+    -316.7
+   ],
+   "cls": 13
+  },
+  {
+   "n": "Kampung Timur",
+   "x": -252,
+   "z": -129.2,
+   "h": 4.15,
+   "wet": false,
+   "pin": [
+    -252,
+    -129.2
+   ],
+   "cls": 10
+  },
+  {
+   "n": "Hutan Timur",
+   "x": -73.6,
+   "z": -140.4,
+   "h": 3.87,
+   "wet": false,
+   "pin": [
+    -73.6,
+    -140.4
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Hutan Utara",
+   "x": 20,
+   "z": -70,
+   "h": 2.28,
+   "wet": false,
+   "pin": [
+    20,
+    -70
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Air Terjun",
+   "x": -230.4,
+   "z": -22,
+   "h": 1.73,
+   "wet": false,
+   "pin": [
+    -230.4,
+    -22
+   ],
+   "cls": 12
+  },
+  {
+   "n": "Tasik Biru",
+   "x": -277.6,
+   "z": 51.6,
+   "h": -3.3,
+   "wet": true,
+   "pin": [
+    -283.4,
+    85.6
+   ],
+   "cls": 1
+  },
+  {
+   "n": "Sawah",
+   "x": -64,
+   "z": -12.4,
+   "h": 0,
+   "wet": false,
+   "pin": [
+    -66,
+    -16
+   ],
+   "cls": 5
+  },
+  {
+   "n": "Pasar",
+   "x": 34.4,
+   "z": -4.4,
+   "h": 0,
+   "wet": false,
+   "pin": [
+    36,
+    0
+   ],
+   "cls": 2
+  },
+  {
+   "n": "Camp",
+   "x": -54.4,
+   "z": 38.8,
+   "h": 20,
+   "wet": false,
+   "pin": [
+    -54,
+    47
+   ],
+   "cls": 3
+  },
+  {
+   "n": "Kolam",
+   "x": 12,
+   "z": 51.6,
+   "h": 0,
+   "wet": false,
+   "pin": [
+    12,
+    36
+   ],
+   "cls": 1
+  },
+  {
+   "n": "Paya Bakau",
+   "x": -164,
+   "z": 90,
+   "h": -0.01,
+   "wet": false,
+   "pin": [
+    -168,
+    96.3
+   ],
+   "cls": 3
+  },
+  {
+   "n": "Puncak",
+   "x": -38.4,
+   "z": 90,
+   "h": 6.56,
+   "wet": false,
+   "pin": [
+    -78,
+    106
+   ],
+   "cls": 3
+  },
+  {
+   "n": "Bukit",
+   "x": -107.2,
+   "z": 147.6,
+   "h": 18.96,
+   "wet": false,
+   "pin": [
+    -107.2,
+    147.6
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Kawasan Turun Bukit",
+   "x": 12,
+   "z": 147.6,
+   "h": 2.39,
+   "wet": false,
+   "pin": [
+    12,
+    147.6
+   ],
+   "cls": 3
+  },
+  {
+   "n": "Pantai Timur",
+   "x": 65.6,
+   "z": 58,
+   "h": -0.01,
+   "wet": false,
+   "pin": [
+    60,
+    22
+   ],
+   "cls": 6
+  },
+  {
+   "n": "Kampung Selatan",
+   "x": -497.6,
+   "z": 130,
+   "h": 2.63,
+   "wet": false,
+   "pin": [
+    -497.6,
+    130
+   ],
+   "cls": 10
+  },
+  {
+   "n": "Hutan Selatan",
+   "x": -616,
+   "z": 186,
+   "h": 4.24,
+   "wet": false,
+   "pin": [
+    -616,
+    186
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Gua Selatan",
+   "x": -521.6,
+   "z": 259.6,
+   "h": 6.09,
+   "wet": false,
+   "pin": [
+    -521.6,
+    259.6
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Tasik Sunyi",
+   "x": -356,
+   "z": 206,
+   "h": -1.6,
+   "wet": true,
+   "pin": [
+    -355.5,
+    195.5
+   ],
+   "cls": 1
+  },
+  {
+   "n": "Gunung Selatan",
+   "x": -212,
+   "z": 155.6,
+   "h": 35.69,
+   "wet": false,
+   "pin": [
+    -213,
+    154.5
+   ],
+   "cls": 6
+  },
+  {
+   "n": "Pulau Kecil",
+   "x": -952,
+   "z": 278,
+   "h": 3.43,
+   "wet": false,
+   "pin": [
+    -952,
+    278
+   ],
+   "cls": 10
+  },
+  {
+   "n": "Pulau Rahsia",
+   "x": -180,
+   "z": 334,
+   "h": 3.06,
+   "wet": false,
+   "pin": [
+    -180,
+    334
+   ],
+   "cls": 3
+  },
+  {
+   "n": "Pulau Lanun",
+   "x": 38.4,
+   "z": 288.4,
+   "h": 2.27,
+   "wet": false,
+   "pin": [
+    38.4,
+    288.4
+   ],
+   "cls": 10
+  },
+  {
+   "n": "Rumah Api",
+   "x": -1006.4,
+   "z": 27.6,
+   "h": 2.25,
+   "wet": false,
+   "pin": [
+    -1006.4,
+    27.6
+   ],
+   "cls": 4
+  },
+  {
+   "n": "Air Terjun Barat",
+   "x": -856,
+   "z": -258,
+   "h": 2.13,
+   "wet": false,
+   "pin": [
+    -854.5,
+    -258
+   ],
+   "cls": 4
+  }
+ ],
+ "bridges": [
+  {
+   "n": "Jambatan Camp",
+   "x": -71,
+   "z": 65.5,
+   "L": 9.6
+  },
+  {
+   "n": "Jambatan Diraja",
+   "x": -498,
+   "z": -140.7,
+   "L": 19.9
+  },
+  {
+   "n": "Jambatan Utara",
+   "x": -498.4,
+   "z": -228.2,
+   "L": 23.9
+  },
+  {
+   "n": "Jambatan Istana Selatan",
+   "x": -497.9,
+   "z": 41.6,
+   "L": 20
+  },
+  {
+   "n": "Jambatan Selatan",
+   "x": -498.4,
+   "z": 69.6,
+   "L": 20
+  },
+  {
+   "n": "Jambatan Istana Timur",
+   "x": -406,
+   "z": -50.7,
+   "L": 20
+  },
+  {
+   "n": "Jambatan Jalan Baru",
+   "x": -336.9,
+   "z": -48.4,
+   "L": 26.1
+  },
+  {
+   "n": "Jambatan Istana Barat",
+   "x": -588,
+   "z": -51.1,
+   "L": 20.1
+  },
+  {
+   "n": "Jambatan Barat",
+   "x": -651.1,
+   "z": -50.8,
+   "L": 26
+  },
+  {
+   "n": "Jambatan Istana Timur Laut",
+   "x": -421.5,
+   "z": -101.5,
+   "L": 17.9
+  },
+  {
+   "n": "Jambatan Kampung Timur",
+   "x": -353.4,
+   "z": -120.5,
+   "L": 23.9
+  },
+  {
+   "n": "Jambatan Istana Barat Laut",
+   "x": -573.1,
+   "z": -101.9,
+   "L": 20
+  },
+  {
+   "n": "Jambatan Hutan",
+   "x": -631,
+   "z": -139.9,
+   "L": 23.9
+  },
+  {
+   "n": "Jambatan Istana Tenggara",
+   "x": -424.9,
+   "z": 6.2,
+   "L": 19.7
+  },
+  {
+   "n": "Jambatan Tenggara",
+   "x": -386.2,
+   "z": 33.6,
+   "L": 15.8
+  },
+  {
+   "n": "Jambatan Istana Barat Daya",
+   "x": -572.1,
+   "z": 2.2,
+   "L": 20
+  },
+  {
+   "n": "Jambatan Barat Daya",
+   "x": -612.6,
+   "z": 29.8,
+   "L": 18
+  },
+  {
+   "n": "Jambatan Padang Pasir",
+   "x": -387.5,
+   "z": -162.4,
+   "L": 24
+  },
+  {
+   "n": "Lingkaran Sawah Timur 1",
+   "x": -420.6,
+   "z": -100.4,
+   "L": 18.5
+  },
+  {
+   "n": "Lingkaran Sawah Timur 2",
+   "x": -405.2,
+   "z": -51.9,
+   "L": 19.3
+  },
+  {
+   "n": "Lingkaran Sawah Selatan 3",
+   "x": -474.7,
+   "z": 38.3,
+   "L": 29.9
+  },
+  {
+   "n": "Lingkaran Sawah Selatan 4",
+   "x": -516.7,
+   "z": 45.9,
+   "L": 34
+  },
+  {
+   "n": "Lingkaran Sawah Selatan 5",
+   "x": -550.1,
+   "z": 33.6,
+   "L": 14
+  },
+  {
+   "n": "Jambatan Sungai Utara",
+   "x": -412.8,
+   "z": -305.2,
+   "L": 21.9
+  },
+  {
+   "n": "Jambatan Kuala Utara",
+   "x": -406.3,
+   "z": -228.5,
+   "L": 21.9
+  },
+  {
+   "n": "Jambatan Gua Salji",
+   "x": -591.5,
+   "z": -202.9,
+   "L": 19.9
+  },
+  {
+   "n": "Jambatan Larangan",
+   "x": -54.7,
+   "z": -251.7,
+   "L": 21.9
+  },
+  {
+   "n": "Jambatan Tasik Sunyi 6",
+   "x": -374.7,
+   "z": 117.3,
+   "L": 22.1
+  },
+  {
+   "n": "Jambatan Paya Bakau",
+   "x": -146.3,
+   "z": 124.5,
+   "L": 11.9
+  },
+  {
+   "n": "Jambatan Pulau Lanun",
+   "x": 2.8,
+   "z": 217.1,
+   "L": 27.9
+  },
+  {
+   "n": "Jambatan Hutan Jauh 7",
+   "x": -901.2,
+   "z": -144.3,
+   "L": 24.1
+  },
+  {
+   "n": "Jeti",
+   "x": 4,
+   "z": 41.6,
+   "L": 9
+  },
+  {
+   "n": "Jeti Tasik Biru",
+   "x": -274.3,
+   "z": 13,
+   "L": 16
+  }
+ ],
+ "roads": [
+  {
+   "n": "Jalan Diraja Utara",
+   "pts": 63,
+   "wetNoBridge": 0,
+   "samples": 32
+  },
+  {
+   "n": "Jalan Diraja Selatan",
+   "pts": 33,
+   "wetNoBridge": 0,
+   "samples": 17
+  },
+  {
+   "n": "Jalan Diraja Timur",
+   "pts": 61,
+   "wetNoBridge": 0,
+   "samples": 31
+  },
+  {
+   "n": "Jalan Diraja Barat",
+   "pts": 68,
+   "wetNoBridge": 0,
+   "samples": 34
+  },
+  {
+   "n": "Jalan Diraja Timur Laut",
+   "pts": 58,
+   "wetNoBridge": 0,
+   "samples": 29
+  },
+  {
+   "n": "Jalan Diraja Barat Laut",
+   "pts": 60,
+   "wetNoBridge": 0,
+   "samples": 30
+  },
+  {
+   "n": "Jalan Diraja Tenggara",
+   "pts": 44,
+   "wetNoBridge": 0,
+   "samples": 22
+  },
+  {
+   "n": "Jalan Diraja Barat Daya",
+   "pts": 51,
+   "wetNoBridge": 0,
+   "samples": 26
+  },
+  {
+   "n": "Jalan Pasir Timur Laut",
+   "pts": 29,
+   "wetNoBridge": 0,
+   "samples": 15
+  },
+  {
+   "n": "Lingkaran Sawah Padi",
+   "pts": 153,
+   "wetNoBridge": 0,
+   "samples": 77
+  },
+  {
+   "n": "Lingkaran Sawah Timur",
+   "pts": 45,
+   "wetNoBridge": 0,
+   "samples": 23
+  },
+  {
+   "n": "Lingkaran Sawah Selatan",
+   "pts": 80,
+   "wetNoBridge": 0,
+   "samples": 40
+  },
+  {
+   "n": "Jalan Sawah Padi",
+   "pts": 40,
+   "wetNoBridge": 0,
+   "samples": 20
+  },
+  {
+   "n": "Jalan Kampung Utara",
+   "pts": 123,
+   "wetNoBridge": 0,
+   "samples": 62
+  },
+  {
+   "n": "Jalan Kampung Utara Selatan",
+   "pts": 147,
+   "wetNoBridge": 0,
+   "samples": 74
+  },
+  {
+   "n": "Jalan Pantai Utara",
+   "pts": 20,
+   "wetNoBridge": 0,
+   "samples": 10
+  },
+  {
+   "n": "Jalan Gua Salji",
+   "pts": 109,
+   "wetNoBridge": 0,
+   "samples": 55
+  },
+  {
+   "n": "Jalan Hutan Barat",
+   "pts": 39,
+   "wetNoBridge": 0,
+   "samples": 20
+  },
+  {
+   "n": "Jalan Kebun Buah",
+   "pts": 93,
+   "wetNoBridge": 0,
+   "samples": 47
+  },
+  {
+   "n": "Lingkaran Kebun Buah",
+   "pts": 119,
+   "wetNoBridge": 0,
+   "samples": 60
+  },
+  {
+   "n": "Jalan Kandang Lembu",
+   "pts": 133,
+   "wetNoBridge": 0,
+   "samples": 67
+  },
+  {
+   "n": "Jalan Pantai Barat",
+   "pts": 36,
+   "wetNoBridge": 0,
+   "samples": 18
+  },
+  {
+   "n": "Jalan Pelabuhan",
+   "pts": 72,
+   "wetNoBridge": 0,
+   "samples": 36
+  },
+  {
+   "n": "Jalan Kampung Timur",
+   "pts": 155,
+   "wetNoBridge": 0,
+   "samples": 78
+  },
+  {
+   "n": "Jalan Barat Kampung Timur",
+   "pts": 51,
+   "wetNoBridge": 0,
+   "samples": 26
+  },
+  {
+   "n": "Jalan Air Terjun",
+   "pts": 133,
+   "wetNoBridge": 0,
+   "samples": 67
+  },
+  {
+   "n": "Jalan Hutan Utara",
+   "pts": 51,
+   "wetNoBridge": 0,
+   "samples": 26
+  },
+  {
+   "n": "Jalan Pasar",
+   "pts": 42,
+   "wetNoBridge": 0,
+   "samples": 21
+  },
+  {
+   "n": "Jalan Sawah Timur",
+   "pts": 87,
+   "wetNoBridge": 0,
+   "samples": 44
+  },
+  {
+   "n": "Jalan Kampung Timur Utara",
+   "pts": 41,
+   "wetNoBridge": 0,
+   "samples": 21
+  },
+  {
+   "n": "Jalan Runtuhan",
+   "pts": 55,
+   "wetNoBridge": 0,
+   "samples": 28
+  },
+  {
+   "n": "Jalan Tasik Biru",
+   "pts": 169,
+   "wetNoBridge": 0,
+   "samples": 85
+  },
+  {
+   "n": "Jalan Tasik Biru Utara",
+   "pts": 87,
+   "wetNoBridge": 0,
+   "samples": 44
+  },
+  {
+   "n": "Jalan Tasik Sunyi",
+   "pts": 261,
+   "wetNoBridge": 0,
+   "samples": 131
+  },
+  {
+   "n": "Jalan Gunung Selatan",
+   "pts": 22,
+   "wetNoBridge": 0,
+   "samples": 11
+  },
+  {
+   "n": "Jalan Kampung Selatan",
+   "pts": 98,
+   "wetNoBridge": 0,
+   "samples": 49
+  },
+  {
+   "n": "Jalan Kampung Selatan Bawah",
+   "pts": 87,
+   "wetNoBridge": 0,
+   "samples": 44
+  },
+  {
+   "n": "Jalan Gua Selatan",
+   "pts": 41,
+   "wetNoBridge": 0,
+   "samples": 21
+  },
+  {
+   "n": "Jalan Bukit",
+   "pts": 36,
+   "wetNoBridge": 0,
+   "samples": 18
+  },
+  {
+   "n": "Jambatan Pulau Lanun",
+   "pts": 42,
+   "wetNoBridge": 0,
+   "samples": 21
+  },
+  {
+   "n": "Laluan Hutan Jauh",
+   "pts": 322,
+   "wetNoBridge": 0,
+   "samples": 161
+  },
+  {
+   "n": "Laluan Hutan Jauh (Selatan)",
+   "pts": 83,
+   "wetNoBridge": 0,
+   "samples": 42
+  }
+ ],
+ "flags": {
+  "tjn": {
+   "x": -774.4,
+   "z": -372.4,
+   "h": 24.04
+  },
+  "tjw": {
+   "x": -889.6,
+   "z": -161.2,
+   "h": 1.89
+  },
+  "tjs": {
+   "x": -841.6,
+   "z": 176.4,
+   "h": 2.52
+  }
+ },
+ "falls": [
+  [
+   -209,
+   -52.4,
+   17.6
+  ],
+  [
+   -847.8066323641306,
+   -271.74295189482547,
+   5.4
+  ]
+ ],
+ "player": {
+  "x": 0,
+  "z": 9,
+  "y": 0
+ },
+ "house": [
+  0,
+  0
+ ]
+}

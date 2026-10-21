@@ -1,0 +1,992 @@
+{
+ "iou_fizik": 0.9678,
+ "f1_pantai_fizik": {
+  "2m": 0.8765,
+  "4m": 0.9128,
+  "8m": 0.9526
+ },
+ "iou_visual": 0.9454,
+ "f1_pantai_visual": {
+  "2.4m": 0.6443,
+  "4.8m": 0.6844
+ },
+ "lokasi": [
+  {
+   "n": "Kerajaan",
+   "reg": "Tengah",
+   "px": [
+    748,
+    465
+   ],
+   "xz": [
+    -497.6,
+    -50.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -497.6,
+    -50
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 3.2,
+   "h": 9.09,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Sawah Padi",
+   "reg": "Tengah",
+   "px": [
+    742,
+    318
+   ],
+   "xz": [
+    -502.4,
+    -167.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -502.4,
+    -167.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 8.0,
+   "h": 1.92,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Gunung Utara",
+   "reg": "Utara",
+   "px": [
+    415,
+    92
+   ],
+   "xz": [
+    -764.0,
+    -348.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -764.1,
+    -351.4
+   ],
+   "pin_off_m": 3.0,
+   "label_m": 69.2,
+   "h": 72.7,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Gua Salji",
+   "reg": "Utara",
+   "px": [
+    532,
+    214
+   ],
+   "xz": [
+    -670.4,
+    -250.8
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -676.6,
+    -255
+   ],
+   "pin_off_m": 7.5,
+   "label_m": 38.4,
+   "h": 19.19,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Laluan Hutan Jauh",
+   "reg": "Utara",
+   "px": [
+    560,
+    132
+   ],
+   "xz": [
+    -648.0,
+    -316.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -778.5,
+    -374.2
+   ],
+   "pin_off_m": 142.7,
+   "label_m": 66.0,
+   "h": 4.62,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kampung Utara",
+   "reg": "Utara",
+   "px": [
+    745,
+    165
+   ],
+   "xz": [
+    -500.0,
+    -290.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -500,
+    -290
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 7.6,
+   "h": 2.38,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Hutan Barat",
+   "reg": "Barat",
+   "px": [
+    384,
+    345
+   ],
+   "xz": [
+    -788.8,
+    -146.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -788.8,
+    -146
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 9.6,
+   "h": 4.85,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kebun Buah",
+   "reg": "Barat",
+   "px": [
+    385,
+    478
+   ],
+   "xz": [
+    -788.0,
+    -39.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -788,
+    -39.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 10.2,
+   "h": 4.52,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kandang Lembu",
+   "reg": "Barat",
+   "px": [
+    385,
+    592
+   ],
+   "xz": [
+    -788.0,
+    51.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -788,
+    51.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 10.2,
+   "h": 4.15,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Pantai Barat",
+   "reg": "Barat",
+   "px": [
+    150,
+    600
+   ],
+   "xz": [
+    -976.0,
+    58.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -976,
+    58
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 9.1,
+   "h": 1.81,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Pelabuhan Barat",
+   "reg": "Barat",
+   "px": [
+    268,
+    676
+   ],
+   "xz": [
+    -881.6,
+    118.8
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -881.6,
+    118.8
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 38.4,
+   "h": 2.86,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Padang Pasir",
+   "reg": "Timur",
+   "px": [
+    1020,
+    195
+   ],
+   "xz": [
+    -280.0,
+    -266.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -280,
+    -266
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 25.1,
+   "h": 4.42,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Runtuhan Purba",
+   "reg": "Timur",
+   "px": [
+    1215,
+    192
+   ],
+   "xz": [
+    -124.0,
+    -268.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -124,
+    -268.4
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 40.5,
+   "h": 9.25,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kawasan Larangan",
+   "reg": "Timur",
+   "px": [
+    1395,
+    128
+   ],
+   "xz": [
+    20.0,
+    -319.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    20.7,
+    -316.7
+   ],
+   "pin_off_m": 3.0,
+   "label_m": 94.6,
+   "h": 51.8,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kampung Timur",
+   "reg": "Timur",
+   "px": [
+    1055,
+    366
+   ],
+   "xz": [
+    -252.0,
+    -129.2
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -252,
+    -129.2
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 7.5,
+   "h": 4.15,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Hutan Timur",
+   "reg": "Timur",
+   "px": [
+    1278,
+    352
+   ],
+   "xz": [
+    -73.6,
+    -140.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -73.6,
+    -140.4
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 11.2,
+   "h": 3.87,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Hutan Utara",
+   "reg": "Timur",
+   "px": [
+    1395,
+    440
+   ],
+   "xz": [
+    20.0,
+    -70.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    20,
+    -70
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 8.8,
+   "h": 2.28,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Air Terjun",
+   "reg": "Timur",
+   "px": [
+    1082,
+    500
+   ],
+   "xz": [
+    -230.4,
+    -22.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -230.4,
+    -22
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 21.3,
+   "h": 1.73,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Tasik Biru",
+   "reg": "Timur",
+   "px": [
+    1023,
+    592
+   ],
+   "xz": [
+    -277.6,
+    51.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -283.4,
+    85.6
+   ],
+   "pin_off_m": 34.5,
+   "label_m": 5.1,
+   "h": -3.3,
+   "wet": true,
+   "reach": "renang/bot",
+   "ok": true
+  },
+  {
+   "n": "Sawah",
+   "reg": "Timur",
+   "px": [
+    1290,
+    512
+   ],
+   "xz": [
+    -64.0,
+    -12.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -66,
+    -16
+   ],
+   "pin_off_m": 4.1,
+   "label_m": 6.4,
+   "h": 0,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Pasar",
+   "reg": "Timur",
+   "px": [
+    1413,
+    522
+   ],
+   "xz": [
+    34.4,
+    -4.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    36,
+    0
+   ],
+   "pin_off_m": 4.7,
+   "label_m": 1.6,
+   "h": 0,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Camp",
+   "reg": "Timur",
+   "px": [
+    1302,
+    576
+   ],
+   "xz": [
+    -54.4,
+    38.8
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -54,
+    47
+   ],
+   "pin_off_m": 8.2,
+   "label_m": 2.3,
+   "h": 20,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kolam",
+   "reg": "Timur",
+   "px": [
+    1385,
+    592
+   ],
+   "xz": [
+    12.0,
+    51.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    12,
+    36
+   ],
+   "pin_off_m": 15.6,
+   "label_m": 9.6,
+   "h": 0,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Paya Bakau",
+   "reg": "Timur",
+   "px": [
+    1165,
+    640
+   ],
+   "xz": [
+    -164.0,
+    90.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -168,
+    96.3
+   ],
+   "pin_off_m": 7.5,
+   "label_m": 21.7,
+   "h": -0.01,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Puncak",
+   "reg": "Timur",
+   "px": [
+    1322,
+    640
+   ],
+   "xz": [
+    -38.4,
+    90.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -78,
+    106
+   ],
+   "pin_off_m": 42.7,
+   "label_m": 2.4,
+   "h": 6.56,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Bukit",
+   "reg": "Timur",
+   "px": [
+    1236,
+    712
+   ],
+   "xz": [
+    -107.2,
+    147.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -107.2,
+    147.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 5.1,
+   "h": 18.96,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kawasan Turun Bukit",
+   "reg": "Timur",
+   "px": [
+    1385,
+    712
+   ],
+   "xz": [
+    12.0,
+    147.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    12,
+    147.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 10.2,
+   "h": 2.39,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Pantai Timur",
+   "reg": "Timur",
+   "px": [
+    1452,
+    600
+   ],
+   "xz": [
+    65.6,
+    58.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    60,
+    22
+   ],
+   "pin_off_m": 36.4,
+   "label_m": 24.5,
+   "h": -0.01,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Kampung Selatan",
+   "reg": "Selatan",
+   "px": [
+    748,
+    690
+   ],
+   "xz": [
+    -497.6,
+    130.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -497.6,
+    130
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 1.6,
+   "h": 2.63,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Hutan Selatan",
+   "reg": "Selatan",
+   "px": [
+    600,
+    760
+   ],
+   "xz": [
+    -616.0,
+    186.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -616,
+    186
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 6.4,
+   "h": 4.24,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Gua Selatan",
+   "reg": "Selatan",
+   "px": [
+    718,
+    852
+   ],
+   "xz": [
+    -521.6,
+    259.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -521.6,
+    259.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 19.3,
+   "h": 6.09,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Tasik Sunyi",
+   "reg": "Selatan",
+   "px": [
+    925,
+    785
+   ],
+   "xz": [
+    -356.0,
+    206.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -355.5,
+    195.5
+   ],
+   "pin_off_m": 10.5,
+   "label_m": 9.7,
+   "h": -1.6,
+   "wet": true,
+   "reach": "renang/bot",
+   "ok": true
+  },
+  {
+   "n": "Gunung Selatan",
+   "reg": "Selatan",
+   "px": [
+    1105,
+    722
+   ],
+   "xz": [
+    -212.0,
+    155.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -213,
+    154.5
+   ],
+   "pin_off_m": 1.5,
+   "label_m": 69.1,
+   "h": 35.69,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Pulau Kecil",
+   "reg": "Pulau",
+   "px": [
+    180,
+    875
+   ],
+   "xz": [
+    -952.0,
+    278.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -952,
+    278
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 9.4,
+   "h": 3.43,
+   "wet": false,
+   "reach": "renang/bot",
+   "ok": true
+  },
+  {
+   "n": "Pulau Rahsia",
+   "reg": "Pulau",
+   "px": [
+    1145,
+    945
+   ],
+   "xz": [
+    -180.0,
+    334.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -180,
+    334
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 8.4,
+   "h": 3.06,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Pulau Lanun",
+   "reg": "Pulau",
+   "px": [
+    1418,
+    888
+   ],
+   "xz": [
+    38.4,
+    288.4
+   ],
+   "err_m": 0.0,
+   "pin": [
+    38.4,
+    288.4
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 2.9,
+   "h": 2.27,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Rumah Api",
+   "reg": "Barat",
+   "px": [
+    112,
+    562
+   ],
+   "xz": [
+    -1006.4,
+    27.6
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -1006.4,
+    27.6
+   ],
+   "pin_off_m": 0.0,
+   "label_m": 0.0,
+   "h": 2.25,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  },
+  {
+   "n": "Air Terjun Barat",
+   "reg": "Barat",
+   "px": [
+    300,
+    205
+   ],
+   "xz": [
+    -856.0,
+    -258.0
+   ],
+   "err_m": 0.0,
+   "pin": [
+    -854.5,
+    -258
+   ],
+   "pin_off_m": 1.5,
+   "label_m": 0.0,
+   "h": 2.13,
+   "wet": false,
+   "reach": "kaki",
+   "ok": true
+  }
+ ],
+ "lokasi_lulus": 38,
+ "lokasi_jumlah": 38,
+ "jalan": 42,
+ "jalan_basah_tanpa_jambatan": [],
+ "jambatan": [
+  "Jambatan Camp",
+  "Jambatan Diraja",
+  "Jambatan Utara",
+  "Jambatan Istana Selatan",
+  "Jambatan Selatan",
+  "Jambatan Istana Timur",
+  "Jambatan Jalan Baru",
+  "Jambatan Istana Barat",
+  "Jambatan Barat",
+  "Jambatan Istana Timur Laut",
+  "Jambatan Kampung Timur",
+  "Jambatan Istana Barat Laut",
+  "Jambatan Hutan",
+  "Jambatan Istana Tenggara",
+  "Jambatan Tenggara",
+  "Jambatan Istana Barat Daya",
+  "Jambatan Barat Daya",
+  "Jambatan Padang Pasir",
+  "Lingkaran Sawah Timur 1",
+  "Lingkaran Sawah Timur 2",
+  "Lingkaran Sawah Selatan 3",
+  "Lingkaran Sawah Selatan 4",
+  "Lingkaran Sawah Selatan 5",
+  "Jambatan Sungai Utara",
+  "Jambatan Kuala Utara",
+  "Jambatan Gua Salji",
+  "Jambatan Larangan",
+  "Jambatan Tasik Sunyi 6",
+  "Jambatan Paya Bakau",
+  "Jambatan Pulau Lanun",
+  "Jambatan Hutan Jauh 7",
+  "Jeti",
+  "Jeti Tasik Biru"
+ ],
+ "jambatan_wajib": {
+  "Jambatan Camp": true,
+  "Jambatan Hutan": true,
+  "Jambatan Jalan Baru": true,
+  "Jambatan Paya Bakau": true,
+  "Jambatan Pulau Lanun": true,
+  "Jambatan Larangan": true
+ },
+ "jambatan_bernama": [
+  "Jambatan Barat",
+  "Jambatan Barat Daya",
+  "Jambatan Diraja",
+  "Jambatan Gua Salji",
+  "Jambatan Hutan",
+  "Jambatan Istana Barat",
+  "Jambatan Istana Barat Daya",
+  "Jambatan Istana Barat Laut",
+  "Jambatan Istana Selatan",
+  "Jambatan Istana Tenggara",
+  "Jambatan Istana Timur",
+  "Jambatan Istana Timur Laut",
+  "Jambatan Jalan Baru",
+  "Jambatan Kampung Timur",
+  "Jambatan Kuala Utara",
+  "Jambatan Larangan",
+  "Jambatan Padang Pasir",
+  "Jambatan Paya Bakau",
+  "Jambatan Pulau Lanun",
+  "Jambatan Selatan",
+  "Jambatan Sungai Utara",
+  "Jambatan Tenggara",
+  "Jambatan Utara"
+ ],
+ "bendera": {
+  "tjn": {
+   "x": -774.4,
+   "z": -372.4,
+   "h": 24.04
+  },
+  "tjw": {
+   "x": -889.6,
+   "z": -161.2,
+   "h": 1.89
+  },
+  "tjs": {
+   "x": -841.6,
+   "z": 176.4,
+   "h": 2.52
+  }
+ },
+ "air_terjun": [
+  [
+   -209,
+   -52.4,
+   17.6
+  ],
+  [
+   -847.8066323641306,
+   -271.74295189482547,
+   5.4
+  ]
+ ],
+ "sel_kaki": 157056,
+ "sel_darat": 167604
+}

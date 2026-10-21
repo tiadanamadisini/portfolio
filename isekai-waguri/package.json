@@ -1,0 +1,16 @@
+{
+  "name": "kediaman-isekai-waguri",
+  "version": "19.0.0",
+  "private": true,
+  "description": "Kediaman Isekai Waguri — Open World RPG (three.js, satu fail HTML untuk Android WebView)",
+  "type": "module",
+  "scripts": {
+    "world": "python3 -I tools/gen_world.py",
+    "build": "node tools/build.mjs",
+    "test:boot": "node tools/test-boot.mjs lite new",
+    "verify:map": "node tools/verify-map.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

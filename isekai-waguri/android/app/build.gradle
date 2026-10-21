@@ -1,0 +1,37 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.waguri.isekai'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.waguri.isekai'
+        minSdk 24            // Android 7.0; WebView mesti Chrome 80+ (DecompressionStream) — dikemas kini melalui Play Store
+        targetSdk 34
+        versionCode 19
+        versionName '19.0'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            // Tandatangan release: tetapkan signingConfig sendiri (keystore TIDAK disimpan dalam repo).
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    // aset: game satu fail dari ../dist disalin sebagai assets/index.html
+    sourceSets { main { assets.srcDirs = ["$buildDir/generated/gameAssets"] } }
+}
+
+def copyGame = tasks.register('copyGameAssets', Copy) {
+    def src = file('../../dist/Kediaman_Isekai_Waguri_v19.html')
+    doFirst { if (!src.exists()) throw new GradleException('Bina game dahulu: node tools/build.mjs (fail ' + src + ' tiada)') }
+    from(src) { rename { 'index.html' } }
+    into "$buildDir/generated/gameAssets"
+}
+tasks.named('preBuild') { dependsOn copyGame }
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+}

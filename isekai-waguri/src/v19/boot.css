@@ -1,0 +1,51 @@
+/* ===== V19 BOOT: logo · loading progress sebenar · menu utama · ralat + RETRY · WORLD READY ===== */
+#b19{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;
+ background:#0b1020;color:#fef3c7;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+#b19.b19-out{opacity:0;transition:opacity .7s ease;pointer-events:none}
+#b19 .b19-bg{position:absolute;inset:-6%;background:radial-gradient(120% 90% at 50% 40%,#1f3a5f 0%,#0b1020 70%);background-size:cover;background-position:center;opacity:.0;transition:opacity 1.2s ease;transform-origin:49% 45%}
+#b19 .b19-bg.b19-on{opacity:.55;animation:b19kb 48s ease-in-out infinite alternate}
+@keyframes b19kb{0%{transform:scale(1.06) translate(0,0)}50%{transform:scale(1.22) translate(-1.5%,1%)}100%{transform:scale(1.12) translate(1.5%,-1%)}}
+#b19 .b19-vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(11,16,32,0) 35%,rgba(11,16,32,.82) 100%),linear-gradient(180deg,rgba(11,16,32,.55),rgba(11,16,32,0) 30%,rgba(11,16,32,0) 60%,rgba(11,16,32,.9))}
+#b19 .b19-wrap{position:relative;width:min(560px,calc(100vw - 32px));display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+#b19 .b19-logo{display:flex;flex-direction:column;align-items:center;gap:6px;animation:b19in 1.1s cubic-bezier(.2,.9,.3,1) both}
+#b19 .b19-logo .b19-em{font-size:52px;line-height:1;filter:drop-shadow(0 6px 18px rgba(251,191,36,.45))}
+#b19 .b19-logo h1{margin:0;font-weight:800;font-size:clamp(26px,6.4vw,40px);letter-spacing:.5px;background:linear-gradient(180deg,#fff7d6,#fbbf24 60%,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 0 transparent}
+#b19 .b19-logo small{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#c7d2fe;opacity:.85}
+@keyframes b19in{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+#b19 .b19-panel{width:100%;background:rgba(15,23,42,.72);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px 16px 14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+#b19 .b19-ld .b19-ph{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:#cbd5e1;margin-bottom:8px}
+#b19 .b19-ld .b19-ph b{font-size:13px;color:#fde68a;letter-spacing:.3px}
+#b19 .b19-ld .b19-pct{font-variant-numeric:tabular-nums;font-weight:800;font-size:22px;color:#fff}
+#b19 .b19-bar{position:relative;height:10px;border-radius:6px;background:rgba(255,255,255,.12);overflow:hidden}
+#b19 .b19-bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:linear-gradient(90deg,#f59e0b,#fbbf24,#fde68a);transition:width .25s ease}
+#b19 .b19-bar i::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55));animation:b19sh 1.1s linear infinite;opacity:.8}
+@keyframes b19sh{from{transform:translateX(-60px)}to{transform:translateX(10px)}}
+#b19 .b19-st{margin-top:10px;font-size:13px;font-weight:700;color:#f8fafc;min-height:18px;text-align:left}
+#b19 .b19-sub{margin-top:3px;font-size:11px;color:#94a3b8;min-height:15px;text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#b19 .b19-tip{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.45;color:#e2e8f0;text-align:left;min-height:34px;transition:opacity .4s}
+#b19 .b19-tip b{color:#fbbf24}
+#b19 .b19-menu{display:flex;flex-direction:column;gap:10px}
+#b19 .b19-btn{appearance:none;border:0;border-radius:14px;padding:14px 16px;font:800 15px 'Plus Jakarta Sans',system-ui,sans-serif;color:#fef3c7;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;transition:transform .12s,background .2s}
+#b19 .b19-btn:active{transform:scale(.97)}#b19 .b19-btn:hover{background:rgba(255,255,255,.16)}
+#b19 .b19-btn:focus-visible{outline:2px solid #fde68a;outline-offset:2px}
+#b19 .b19-btn.b19-pri{background:linear-gradient(135deg,#f59e0b,#d97706);border-color:#fde68a;color:#1c1206}
+#b19 .b19-btn.b19-pri small{color:#3b2208}
+#b19 .b19-btn[disabled]{opacity:.42;cursor:not-allowed}
+#b19 .b19-btn span{display:flex;flex-direction:column;gap:2px}
+#b19 .b19-btn small{font-weight:600;font-size:11px;color:#cbd5e1}
+#b19 .b19-row{display:flex;gap:8px}#b19 .b19-row .b19-btn{flex:1;justify-content:center;font-size:13px;padding:11px 10px}
+#b19 .b19-gfx{display:grid;gap:8px}
+#b19 .b19-gfx .b19-btn.b19-on{border-color:#fbbf24;background:rgba(251,191,36,.18)}
+#b19 .b19-gfx .b19-rec{align-self:flex-start;font-size:10px;background:#16a34a;color:#fff;border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+#b19 h2{margin:0 0 6px;font-size:16px;color:#fde68a}
+#b19 .b19-err h2{color:#fca5a5}
+#b19 .b19-err pre{max-height:32vh;overflow:auto;text-align:left;font-size:11px;line-height:1.4;background:rgba(0,0,0,.35);padding:10px;border-radius:10px;white-space:pre-wrap;word-break:break-word;color:#fecaca;-webkit-user-select:text;user-select:text}
+#b19 .b19-ready .b19-big{font-weight:800;font-size:clamp(30px,8vw,46px);letter-spacing:4px;background:linear-gradient(180deg,#ecfccb,#86efac 55%,#22c55e);-webkit-background-clip:text;background-clip:text;color:transparent;animation:b19in .8s both}
+#b19 .b19-ready p{margin:6px 0 12px;font-size:12px;color:#cbd5e1}
+#b19 .b19-warn{font-size:11px;color:#fcd34d;text-align:left;margin:0 0 10px}
+#b19 .b19-warn summary{cursor:pointer}
+#b19 .b19-warn ul{margin:6px 0 0;padding-left:18px;max-height:22vh;overflow:auto;color:#fde68a}
+#b19 .b19-ver{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);left:0;right:0;text-align:center;font-size:10px;color:#64748b;letter-spacing:1px}
+#b19 [hidden]{display:none!important}
+@media (max-height:520px){#b19 .b19-logo .b19-em{font-size:34px}#b19 .b19-wrap{gap:10px}#b19 .b19-panel{padding:12px}#b19 .b19-tip{display:none}}
+@media (prefers-reduced-motion:reduce){#b19 .b19-bg.b19-on{animation:none}#b19 .b19-bar i::after{animation:none}}
